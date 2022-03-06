@@ -1,3 +1,3 @@
 $(document).ready(function () {
-    alert("lalala")
+    alert("ici")
 });
