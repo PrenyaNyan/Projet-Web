@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION["newsession"])) {
+    header("Location: /assets/html/accueil.php");
+    exit();
+}
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -59,13 +67,12 @@
                 }
 
                 $stmt->closeCursor();
-            }
-            if (isset($_SESSION["newsession"])) {
-                header("Location: /assets/html/accueil.php");
-                exit();
-            }
 
-
+                if (isset($_SESSION["newsession"])) {
+                    header("Location: /assets/html/accueil.php");
+                    exit();
+                }
+            }
             ?>
             <p class="mt-5 mb-3 text-muted">© 2021 DepiStage, Inc. All rights reserved.</p>
         </form>

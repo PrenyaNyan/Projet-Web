@@ -1,3 +1,12 @@
+<?php
+ session_start();
+if(empty($_SESSION["newsession"]))
+{
+  header("Location: /../../index.php");
+  exit();
+}
+?>
+
 <!doctype html>
 <html lang="fr">
 
