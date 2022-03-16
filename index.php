@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./assets/vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/vendors/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/index1.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 
 <body class="text-center">
@@ -18,11 +18,11 @@
             <h1 class="h3 mb-3 fw-normal">Sign in DepiStage</h1>
             <div id="FormContent">
                 <div class="form-floating">
-                    <input class="form-control FirstInput" id="floatingInput" placeholder="name@example.com" name="email">
-                    <label for="floatingInput">Email address</label>
+                    <input class="form-control FirstInput" id="floatingInput" placeholder="Username" name="Username">
+                    <label for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating">
-                    <input class="form-control LastInput" id="floatingPassword" placeholder="Password" name="password">
+                    <input class="form-control LastInput" id="floatingPassword" placeholder="Password" name="Password">
                     <label for="floatingPassword">Password</label>
                 </div>
             </div>
@@ -31,6 +31,43 @@
                 <button type="submit" class="btn btn-secondary btn-lg" id="SignInSubmit">Submit</button>
             </div>
 
+            <?php
+            $db = "bddprojet";
+            $dbhost = "localhost";
+            $dbport = 3306;
+            $dbuser = "pipou";
+            $dbpasswd = "azertyuiop";
+
+            if (isset($_GET["Username"]) && isset($_GET["Password"])) {
+                try {
+                    $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
+
+                    $stmt = $pdo->prepare("SELECT * FROM `users` where USERNAME=? and PASSWORD=?");
+                    $stmt->bindParam(1, $_GET["Username"]);
+                    $stmt->bindParam(2, $_GET["Password"]);
+                    $stmt->execute();
+                    $res = $stmt->fetch();
+
+                    if ($stmt->rowCount() == 1) {
+                        echo '<div class="alert alert-success" role="alert">Connexion réussis</div>';
+                        $_SESSION["newsession"] = $res[3];
+                    } else {
+                        echo '<div class="alert alert-danger" role="alert">Nom d\'utilisateur ou mot de passe incorrect</div>';
+                    }
+                } catch (\Throwable $th) {
+                    echo '<div class="alert alert-danger" role="alert">Erreur de connexion a la base de données</div>';
+                }
+
+                $stmt->closeCursor();
+            }
+            if (isset($_SESSION["newsession"])) {
+                header("Location: /assets/html/acceuil.php");
+                exit();
+            }
+
+
+            ?>
+            <a href="/assets/html/acceuil.php"></a>
             <p class="mt-5 mb-3 text-muted">© 2021 DepiStage, Inc. All rights reserved.</p>
         </form>
     </main>

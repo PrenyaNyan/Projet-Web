@@ -37,8 +37,8 @@ $(document).ready(function () {
 
     $("#FormButton").on("click", "#SignInForm", function () {
         $("#FormContent").html(`  <div class="form-floating">
-                                        <input class="form-control FirstInput" id="floatingInput" placeholder="name@example.com">
-                                        <label for="floatingInput">Email address</label>
+                                        <input class="form-control FirstInput" id="floatingInput" placeholder="Username" name="Username">
+                                        <label for="floatingInput">Username</label>
                                     </div>
                                     <div class="form-floating">
                                         <input class="form-control LastInput" id="floatingPassword" placeholder="Password">
