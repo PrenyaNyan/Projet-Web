@@ -27,13 +27,13 @@ body {
   z-index: 2;
 }
 
-.form-signin input[type="FirstInput"] {
+.FirstInput{
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="MiddleInput"] {
+.MiddleInput{
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -41,12 +41,19 @@ body {
   border-top-right-radius: 0;
 }
 
-.form-signin input[type="LastInput"] {
-  margin-bottom: 10px;
+.LastInput{
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
 .espace{
   margin-left: 5px;
+}
+
+.deleguecheckbox{
+  margin-top: 5px;
+}
+
+button{
+  margin-top: 10px;
 }
