@@ -12,7 +12,7 @@
 
 <body class="text-center">
     <main class="form-signin">
-        <form action="index.php" method="get">
+        <form action="index.php" method="post">
 
             <img src="https://cdn.discordapp.com/attachments/950033739604434965/950403057567551528/logo.png" width="120">
             <h1 class="h3 mb-3 fw-normal">Sign in DepiStage</h1>
@@ -38,13 +38,13 @@
             $dbuser = "pipou";
             $dbpasswd = "azertyuiop";
 
-            if (isset($_GET["Username"]) && isset($_GET["Password"])) {
+            if (isset($_POST["Username"]) && isset($_POST["Password"])) {
                 try {
                     $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
 
                     $stmt = $pdo->prepare("SELECT * FROM `users` where USERNAME=? and PASSWORD=?");
-                    $stmt->bindParam(1, $_GET["Username"]);
-                    $stmt->bindParam(2, $_GET["Password"]);
+                    $stmt->bindParam(1, $_POST["Username"]);
+                    $stmt->bindParam(2, $_POST["Password"]);
                     $stmt->execute();
                     $res = $stmt->fetch();
 
@@ -61,13 +61,12 @@
                 $stmt->closeCursor();
             }
             if (isset($_SESSION["newsession"])) {
-                header("Location: /assets/html/acceuil.php");
+                header("Location: /assets/html/accueil.php");
                 exit();
             }
 
 
             ?>
-            <a href="/assets/html/acceuil.php"></a>
             <p class="mt-5 mb-3 text-muted">© 2021 DepiStage, Inc. All rights reserved.</p>
         </form>
     </main>
