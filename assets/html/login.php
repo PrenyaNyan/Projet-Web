@@ -46,8 +46,8 @@ if (isset($_SESSION["newsession"])) {
             $dbuser = "pipou";
             $dbpasswd = "azertyuiop";
 
-            if (isset($_GET["Username"])) {
-                if ($_GET["Username"] == "" || $_GET["Password"] == "") {
+            if (isset($_GET["username"])) {
+                if ($_GET["username"] == "" || $_GET["password"] == "") {
                     echo '<div class="alert alert-danger" role="alert">Champs non remplis</div>';
                 } else {
                     try {
