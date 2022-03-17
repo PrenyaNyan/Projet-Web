@@ -26,8 +26,8 @@ if (isset($_SESSION["newsession"])) {
             <h1 class="h3 mb-3 fw-normal">Login DepiStage</h1>
             <div id="FormContent">
                 <div class="form-floating">
-                    <input class="form-control FirstInput" id="floatingInput" placeholder="Username" name="Username">
-                    <label for="floatingInput">Username</label>
+                    <input class="form-control FirstInput" id="floatingUsername" placeholder="Username" name="Username">
+                    <label for="floatingUsername">Username</label>
                 </div>
                 <div class="form-floating">
                     <input type="password" class="form-control LastInput" id="floatingPassword" placeholder="Password" name="Password">
@@ -46,27 +46,33 @@ if (isset($_SESSION["newsession"])) {
             $dbuser = "pipou";
             $dbpasswd = "azertyuiop";
 
-            if (isset($_GET["Username"]) && isset($_GET["Password"])) {
-                try {
-                    $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
+            if (isset($_GET["Username"]) || isset($_GET["Password"])) {
+                if ($_GET["Username"] == "" && $_GET["Password"] == "") {
+                    echo '<div class="alert alert-danger" role="alert">Champs non remplis</div>';
+                } else {
+                    try {
+                        $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
 
-                    $stmt = $pdo->prepare("SELECT * FROM `users` where USERNAME=? and PASSWORD=?");
-                    $stmt->bindParam(1, $_GET["Username"]);
-                    $stmt->bindParam(2, $_GET["Password"]);
-                    $stmt->execute();
-                    $res = $stmt->fetch();
+                        $stmt = $pdo->prepare("SELECT * FROM `users` where USERNAME=? and PASSWORD=?");
+                        $stmt->bindParam(1, $_GET["Username"]);
+                        $stmt->bindParam(2, $_GET["Password"]);
+                        $stmt->execute();
+                        $res = $stmt->fetch();
 
-                    if ($stmt->rowCount() == 1) {
-                        echo '<div class="alert alert-success" role="alert">Connexion réussis</div>';
-                        $_SESSION["newsession"] = $res[3];
-                    } else {
-                        echo '<div class="alert alert-danger" role="alert">Nom d\'utilisateur ou mot de passe incorrect</div>';
+                        if ($stmt->rowCount() == 1) {
+                            echo '<div class="alert alert-success" role="alert">Connexion réussis</div>';
+                            $_SESSION["newsession"] = $res[3];
+                        } else {
+                            echo '<div class="alert alert-danger" role="alert">Nom d\'utilisateur ou mot de passe incorrect</div>';
+                        }
+                    } catch (\Throwable $th) {
+                        echo '<div class="alert alert-danger" role="alert">Erreur de connexion a la base de données</div>';
                     }
-                } catch (\Throwable $th) {
-                    echo '<div class="alert alert-danger" role="alert">Erreur de connexion a la base de données</div>';
+
+                    $stmt->closeCursor();
                 }
 
-                $stmt->closeCursor();
+
 
                 if (isset($_SESSION["newsession"])) {
                     header("Location: accueil.php");
@@ -81,7 +87,7 @@ if (isset($_SESSION["newsession"])) {
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    
+
 </body>
 
 </html>

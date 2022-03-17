@@ -34,20 +34,20 @@ if (isset($_SESSION["newsession"])) {
                     <label for="floatingFirstName">First Name</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control MiddleInput" id="SignUpPassord" placeholder="Password" name="password">
-                    <label for="SignUpPassord">Password</label>
+                    <input type="password" class="form-control MiddleInput" id="floatingSignUpPassord" placeholder="Password" name="password">
+                    <label for="floatingSignUpPassord">Password</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control MiddleInput" id="PasswordConfirmation" placeholder="PasswordConfirmation" name="passwordconfirm">
-                    <label for="PasswordConfirmation">Password Confirmation</label>
+                    <input type="password" class="form-control MiddleInput" id="floatingPasswordConfirmation" placeholder="PasswordConfirmation" name="passwordconfirm">
+                    <label for="floatingPasswordConfirmation">Password Confirmation</label>
                 </div>
                 <div class="form-floating">
-                    <select class="form-select LastInput" aria-label="Default select example">
+                    <select class="form-select LastInput" id="roleselect" name="roleselected">
                         <option selected>Select a role</option>
                         <option value="1">Admin</option>
                         <option value="2">Pilote</option>
                         <option value="3">Etudiant</option>
-                        <option value="4">Delegue</option>
+                        <option value="3">Delegue</option>
                     </select>
                 </div>
 
@@ -65,6 +65,7 @@ if (isset($_SESSION["newsession"])) {
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/scriptsignup.js"></script>
 </body>
 
 </html>
