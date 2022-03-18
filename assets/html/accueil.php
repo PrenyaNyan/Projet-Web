@@ -69,16 +69,16 @@
         <div class="row">
           <div class="col-sm-3">
             <h6>Choix de votre année d'étude :</h6>
-          <select name="pets" id="pet-select">
-    <option value="">Années d'études</option>
-    <option value="BAC +1">BAC +1</option>
-    <option value="BAC +2">BAC +2</option>
-    <option value="BAC +3">BAC +3</option>
-    <option value="BAC +4">BAC +4</option>
-    <option value="BAC +5">BAC +5</option>
+            <select class="form-select LastInput" name="pets" id="pet-select">
+              <option value="">Années d'études</option>
+              <option value="BAC +1">BAC +1</option>
+              <option value="BAC +2">BAC +2</option>
+              <option value="BAC +3">BAC +3</option>
+              <option value="BAC +4">BAC +4</option>
+              <option value="BAC +5">BAC +5</option>
 
-</select>
-            
+            </select>
+
           </div>
 
 
@@ -88,7 +88,7 @@
 
           <div class="col-sm-3">
             <h6>Date de début du stage :</h6>
-            <input type="date">
+            <input class="form-select LastInput" type="date">
           </div>
 
 
@@ -98,10 +98,23 @@
 
 
 
-          
+
           <div class="col-sm-3">
-            <p>ccc</p>
+            <h6>Localisation du stage :</h6>
+            <select class="form-select LastInput" id="inputlocalisation" name="localisation">
+              <option selected id="inputlocalisation">Lieux</option>
+
+              <?php
+              require('../php/querylocalisation.php');
+              ?>
+            </select>
+
           </div>
+
+
+
+
+
           <div class="col-sm-3">
             <p>ddd</p>
           </div>
