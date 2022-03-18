@@ -1,0 +1,27 @@
+:root {
+    --navpaddingsize: 22%;
+}
+
+.navleft {
+    margin-left: auto;
+    padding-left: var(--navpaddingsize);
+    padding-right: var(--navpaddingsize);
+}
+
+.navright {
+    margin-right: auto;
+    padding-left: var(--navpaddingsize);
+    padding-right: var(--navpaddingsize);
+}
+
+nav .nav-link {
+    color: lightgrey;
+}
+
+nav .active {
+    color: #495057;
+}
+
+nav {
+    margin-bottom: 20px;
+}

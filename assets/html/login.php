@@ -36,18 +36,12 @@ require('../php/isconnected.php');
             </div>
 
             <?php
-            $db = "bddprojet";
-            $dbhost = "localhost";
-            $dbport = 3306;
-            $dbuser = "pipou";
-            $dbpasswd = "azertyuiop";
-
             if (isset($_GET["username"])) {
                 if ($_GET["username"] == "" || $_GET["password"] == "") {
                     echo '<div class="alert alert-danger" role="alert">Champs non remplis</div>';
                 } else {
                     try {
-                        $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
+                        require('../php/createPDO.php');
 
                         $stmt = $pdo->prepare("SELECT * FROM `users` where USERNAME=? and PASSWORD=?");
                         $stmt->bindParam(1, $_GET["username"]);
