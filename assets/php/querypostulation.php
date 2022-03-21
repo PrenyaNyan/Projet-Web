@@ -2,9 +2,9 @@
 try {
     $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
                             FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location 
-                            inner JOIN save ON offer.ID_Offer = save.ID_Offer 
-                            inner JOIN users ON save.ID_User = users.ID_User 
-                            inner JOIN company on offer.ID_Company = company.ID_Company
+                            inner JOIN applyfor ON offer.ID_Offer = applyfor.ID_Offer 
+                            inner JOIN users ON applyfor.ID_User = users.ID_User 
+                            inner JOIN company on offer.ID_Company = company.ID_Company 
                             WHERE users.USERNAME = ?;");
     $stmt->bindParam(1, $_SESSION["newsession"]);
     $stmt->execute();
@@ -48,9 +48,6 @@ try {
                     </svg><img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" alt="" width="375">
 
                 </div>
-                <button class="btn btn-like" id="boutonLike">
-                    <span class="fa fa-heart"></span>
-                </button>
             </div>';
         
     }
