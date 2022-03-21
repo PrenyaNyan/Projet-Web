@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../css/globalform.css">
+  <link rel="stylesheet" href="../css/accueil.css">
 </head>
 
 
@@ -116,7 +117,19 @@
 
 
           <div class="col-sm-3">
-            <p>ddd</p>
+            <h6>Note minimum :</h6>
+            <div class="rate">
+              <input type="radio" id="star5" name="rate" value="5" />
+              <label for="star5" title="text">5 stars</label>
+              <input type="radio" id="star4" name="rate" value="4" />
+              <label for="star4" title="text">4 stars</label>
+              <input type="radio" id="star3" name="rate" value="3" />
+              <label for="star3" title="text">3 stars</label>
+              <input type="radio" id="star2" name="rate" value="2" />
+              <label for="star2" title="text">2 stars</label>
+              <input type="radio" id="star1" name="rate" value="1" />
+              <label for="star1" title="text">1 star</label>
+            </div>
           </div>
         </div>
       </div>
@@ -124,41 +137,40 @@
 
 
 
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">
-            <font style="vertical-align: inherit;">
               <font style="vertical-align: inherit;">Entreprise1</font>
-            </font>
           </strong>
           <h3 class="mb-0">
-            <font style="vertical-align: inherit;">
               <font style="vertical-align: inherit;">Nom de l'annonce</font>
-            </font>
           </h3>
           <div class="mb-1 text-muted">
-            <font style="vertical-align: inherit;">
               <font style="vertical-align: inherit;">Date du stage</font>
-            </font>
           </div>
           <p class="card-text mb-auto">
-            <font style="vertical-align: inherit;">
               <font style="vertical-align: inherit;">Début de la description de l'annonce, blablablablablabla...</font>
-            </font>
           </p>
-          <a href="#" class="stretched-link">
-            <font style="vertical-align: inherit;">
+
+          <a href="">
               <font style="vertical-align: inherit;">consulter l'annonce</font>
-            </font>
           </a>
+
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Espace réservé&nbsp;: Vignette" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" alt="" width="375" />
           </svg>
+
+          <button id="likebutton">
+            <i class="far fa-heart fa-2x" id="heartimg" ></i>
+          </button>
         </div>
       </div>
+            
+
 
 
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -195,6 +207,7 @@
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../js/scriptIndex.js"></script>
+  <script src="../js/accueil.js"></script>
 
 </body>
 
