@@ -53,7 +53,7 @@ require('../php/isnotconnected.php');
         </div>
         <div class="tab-pane fade show container" id="nav-messaged" role="tabpanel" aria-labelledby="nav-messaged-tab">
             <?php
-            require('../php/postulation.php');
+            require('../php/querypostulation.php');
             ?>
         </div>
     </div>
@@ -61,6 +61,7 @@ require('../php/isnotconnected.php');
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/likebutton.js"></script>
 </body>
 
 </html>
