@@ -1,11 +1,6 @@
 <?php
-session_start();
-if (isset($_SESSION["newsession"])) {
-    header("Location: /assets/html/accueil.php");
-    exit();
-}
+require('../php/isconnected.php');
 ?>
-
 <!doctype html>
 <html lang="fr">
 
@@ -26,12 +21,16 @@ if (isset($_SESSION["newsession"])) {
             <h1 class="h3 mb-3 fw-normal">Sign Up DepiStage</h1>
             <div id="FormContent">
                 <div class="form-floating">
-                    <input class="form-control FirstInput" id="floatingName" placeholder="Name" name="name">
-                    <label for="floatingName">Name</label>
+                    <input class="form-control FirstInput" id="floatingFirstName" placeholder="First Name" name="firstname">
+                    <label for="floatingFirstName">First Name</label>
                 </div>
                 <div class="form-floating">
-                    <input class="form-control MiddleInput" id="floatingFirstName" placeholder="First Name" name="firstname">
-                    <label for="floatingFirstName">First Name</label>
+                    <input class="form-control MiddleInput" id="floatingLastName" placeholder="Last Name" name="lastname">
+                    <label for="floatingLastName">Last Name</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control MiddleInput" id="floatingUsername" placeholder="Username" name="username">
+                    <label for="floatingUsername">Username</label>
                 </div>
                 <div class="form-floating">
                     <input type="password" class="form-control MiddleInput" id="floatingSignUpPassord" placeholder="Password" name="password">
@@ -47,7 +46,17 @@ if (isset($_SESSION["newsession"])) {
                         <option value="1">Admin</option>
                         <option value="2">Pilote</option>
                         <option value="3">Etudiant</option>
-                        <option value="3">Delegue</option>
+                        <option value="4">Delegue</option>
+                    </select>
+                </div>
+                <div class="form-floating added">
+                    <select class="form-select LastInput" id="inputpromo" name="promo">
+                        <option selected id="promoname">Promotion</option>
+
+                        <?php
+                        require('../php/createPDO.php');
+                        require('../php/querypromotion.php');
+                        ?>
                     </select>
                 </div>
 
@@ -57,7 +66,11 @@ if (isset($_SESSION["newsession"])) {
                 <button class="btn btn-secondary btn-lg espace" type="submit" id="SignUpSubmit" method="post">Submit</button>
             </div>
 
-            
+            <?php
+            require('../php/querysignup.php');
+            ?>
+
+
             <p class="mt-5 mb-3 text-muted">© 2021 DepiStage, Inc. All rights reserved.</p>
         </form>
     </main>
@@ -65,7 +78,7 @@ if (isset($_SESSION["newsession"])) {
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/scriptsignup.js"></script>
+    <script src="../js/scriptsignup1.js"></script>
 </body>
 
 </html>

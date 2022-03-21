@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (isset($_SESSION["newsession"])) {
-    header("Location: /assets/html/accueil.php");
-    exit();
-}
+require('../php/isconnected.php');
 ?>
 
 <!doctype html>
@@ -26,11 +22,11 @@ if (isset($_SESSION["newsession"])) {
             <h1 class="h3 mb-3 fw-normal">Login DepiStage</h1>
             <div id="FormContent">
                 <div class="form-floating">
-                    <input class="form-control FirstInput" id="floatingUsername" placeholder="Username" name="Username">
+                    <input class="form-control FirstInput" id="floatingUsername" placeholder="Username" name="username">
                     <label for="floatingUsername">Username</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control LastInput" id="floatingPassword" placeholder="Password" name="Password">
+                    <input type="password" class="form-control LastInput" id="floatingPassword" placeholder="Password" name="password">
                     <label for="floatingPassword">Password</label>
                 </div>
             </div>
@@ -40,22 +36,16 @@ if (isset($_SESSION["newsession"])) {
             </div>
 
             <?php
-            $db = "bddprojet";
-            $dbhost = "localhost";
-            $dbport = 3306;
-            $dbuser = "pipou";
-            $dbpasswd = "azertyuiop";
-
-            if (isset($_GET["Username"]) || isset($_GET["Password"])) {
-                if ($_GET["Username"] == "" && $_GET["Password"] == "") {
+            if (isset($_GET["username"])) {
+                if ($_GET["username"] == "" || $_GET["password"] == "") {
                     echo '<div class="alert alert-danger" role="alert">Champs non remplis</div>';
                 } else {
                     try {
-                        $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
+                        require('../php/createPDO.php');
 
                         $stmt = $pdo->prepare("SELECT * FROM `users` where USERNAME=? and PASSWORD=?");
-                        $stmt->bindParam(1, $_GET["Username"]);
-                        $stmt->bindParam(2, $_GET["Password"]);
+                        $stmt->bindParam(1, $_GET["username"]);
+                        $stmt->bindParam(2, $_GET["password"]);
                         $stmt->execute();
                         $res = $stmt->fetch();
 
