@@ -10,7 +10,7 @@ require('../php/isnotconnected.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../css/dashboard1.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 
 <body>
@@ -19,7 +19,6 @@ require('../php/isnotconnected.php');
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <img src="https://cdn.discordapp.com/attachments/950033739604434965/950403057567551528/logo.png" class="bi me-2" style="width: 100px;">
                 </a>
-
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
@@ -53,17 +52,16 @@ require('../php/isnotconnected.php');
             ?>
         </div>
         <div class="tab-pane fade show container" id="nav-messaged" role="tabpanel" aria-labelledby="nav-messaged-tab">
-
+            <?php
+            require('../php/querypostulation.php');
+            ?>
         </div>
     </div>
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/likebutton.js"></script>
 </body>
 
 </html>
