@@ -1,7 +1,6 @@
 <?php
 require('../php/isconnected.php');
 ?>
-
 <!doctype html>
 <html lang="fr">
 
@@ -55,6 +54,7 @@ require('../php/isconnected.php');
                         <option selected id="promoname">Promotion</option>
 
                         <?php
+                        require('../php/createPDO.php');
                         require('../php/querypromotion.php');
                         ?>
                     </select>

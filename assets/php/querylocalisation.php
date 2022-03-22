@@ -1,6 +1,6 @@
 <?php
 try {
-    $stmt = $pdo->prepare("SELECT * FROM `promotion`");
+    $stmt = $pdo->prepare("SELECT * FROM `location` ORDER BY `location`.`City` ASC");
     $stmt->execute();
     $res = $stmt->fetchAll();
 
@@ -8,7 +8,7 @@ try {
     $stmt->closeCursor();
 
     foreach ($res as $row) {
-        echo '<option value="' . $row['ID_Promotion'] . '">' . $row['NAME'] . '</option>';
+        echo '<option value="' . $row['ID_Location'] . '">' . $row['City'] . '</option>';
     }
 } catch (\Throwable $th) {
     echo '<option value="erreur">Erreur de connexion a la base de données</option>';
