@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../css/globalform.css">
-  <link rel="stylesheet" href="../css/accueil.css">
+  <link rel="stylesheet" href="../css/accueil1.css">
 </head>
 
 
@@ -139,7 +139,7 @@
 
 
 
-  <div class="container resp">
+  <div class="container announceBackground">
     <div class="row">
       <div class="col-sm-8">
         <strong class="d-inline-block mb-2 text-primary">
@@ -161,7 +161,7 @@
       </div>
 
       <div class="col-sm-3">
-        <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" alt="" width="275" />
+        <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" alt="" width="100%" style="border-radius: 8px;"/>
         </svg>
 
 
