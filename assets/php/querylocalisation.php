@@ -1,11 +1,5 @@
 <?php
 try {
-    $db = "bddprojet";
-    $dbhost = "localhost";
-    $dbport = 3306;
-    $dbuser = "pipou";
-    $dbpasswd = "azertyuiop";
-    $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
     $stmt = $pdo->prepare("SELECT * FROM `location` ORDER BY `location`.`City` ASC");
     $stmt->execute();
     $res = $stmt->fetchAll();
