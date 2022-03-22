@@ -55,7 +55,8 @@
 }
 
 .containerFiltre {
-    margin-bottom: 15px;
+    margin-bottom: 45px;
+    margin-top: 15px;
 
 }
 
@@ -64,7 +65,15 @@
     margin-top: 75px;
 }
 
+.announceBackground {
+    background-color: #F9F9F9;
+    border-radius: 10px;
+}
 
-.resp {
-    column-gap: 40px;
-  }
+
+.consultAnnounce {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

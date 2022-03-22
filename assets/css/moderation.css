@@ -1,0 +1,68 @@
+:root {
+    --navpaddingsize: 22%;
+}
+
+.main {
+    width: 70%;
+    margin: 40px auto;
+    padding: 15px;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+#contenueblock {
+    margin: 0px -15px  -15px -15px;
+    overflow: auto;
+    max-height: 500px;
+}
+
+.contenue{
+    padding: 5px;
+}
+
+.input-group{
+    margin-bottom: 15px;
+}
+
+:root {
+    --navpaddingsize: 10%;
+}
+
+.navleft {
+    margin-left: auto;
+    padding-left: var(--navpaddingsize);
+    padding-right: var(--navpaddingsize);
+}
+
+.navmid{
+    padding-left: var(--navpaddingsize);
+    padding-right: var(--navpaddingsize);
+}
+
+.navright {
+    margin-right: auto;
+    padding-left: var(--navpaddingsize);
+    padding-right: var(--navpaddingsize);
+}
+
+nav .nav-link {
+    color: lightgrey;
+}
+
+nav .active {
+    color: #495057;
+}
+
+nav {
+    margin-bottom: 20px;
+}
