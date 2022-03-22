@@ -12,12 +12,13 @@
 </head>
 
 <body class="bg-light">
+
+
+
     <header class="p-3 bg-white text-black">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <img src="https://cdn.discordapp.com/attachments/950033739604434965/950403057567551528/logo.png" class="bi me-2" style="width: 100px;">
-                </a>
-
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 text-black">Home</a></li>
                     <li><a href="#" class="nav-link px-2 text-black">Features</a></li>
@@ -31,12 +32,19 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-secondary me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <form action="http://localhost/assets/html/login.php" class="btn btn-outline-secondary">
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                    <form action="http://localhost/assets/html/signup.php" class="btn btn-secondary">
+                        <button type="submit" class="btn text-light">Sign-up</button>
+                    </form>
                 </div>
             </div>
         </div>
     </header>
+
+
+
     <div class="m-4">
         <div>
             <button type="button" class="btn btn-dark text-light me-2 m-2">Retour</button>
