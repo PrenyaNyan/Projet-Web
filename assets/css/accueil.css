@@ -51,4 +51,20 @@
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    margin-left: 10px;
 }
+
+.containerFiltre {
+    margin-bottom: 15px;
+
+}
+
+
+.marginHeart {
+    margin-top: 75px;
+}
+
+
+.resp {
+    column-gap: 40px;
+  }
