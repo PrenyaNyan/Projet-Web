@@ -32,7 +32,7 @@ require('../php/isnotconnected.php');
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-outline-light me-2" href="http://localhost/assets/html/accueil.php">Login</button>
                     <button type="button" class="btn btn-warning">Sign-up</button>
                 </div>
             </div>
