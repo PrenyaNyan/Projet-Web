@@ -69,3 +69,11 @@
     background-color: #F9F9F9;
     border-radius: 10px;
 }
+
+
+.consultAnnounce {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
