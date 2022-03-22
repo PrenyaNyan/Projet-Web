@@ -151,11 +151,11 @@
                         <label for="datef">Date de fin : </label>
                         <br>
 
-                        <input type="date" id="start" name="trip-start" value="2022-03-22" min="2022-03-24"
+                        <input type="date" id="start" name="trip-start" value="jj/mm/aaaa" min="2022-03-24"
                             max="2024-12-31">
                         &emsp; &emsp; &emsp;
 
-                        <input type="date" id="start" name="trip-start" value="2022-03-22" min="2022-03-24"
+                        <input type="date" id="start" name="trip-start" value="jj/mm/aaaa" min="2022-03-24"
                             max="2025-12-31">
                         <br><br>
                         <label for="motivation">Description :</label>
@@ -169,16 +169,20 @@
                                         <div class="card border-bottom-0" style="margin-bottom: 0 !important;">
                                             <p class="card-header" style="font-size: 1.25rem;"><span
                                                     id="TextArearesultCharacters">0</span> Mots/10 000,
-                                                <span id="TextArearesultCharacters">0</span> Alphabets
                                             </p>
-                                        </div><textarea oninput="wordcounter()" class="form-control"
+
+
+
+                                            
+                                        </div><textarea class="form-control"
                                             id="wordCounterTextArea" rows="12"
                                             placeholder="Paste text here or start typing"></textarea><label
-                                            for="wordCounterTextArea" style="margin-left: 5px;"><i><small>Entrer votre texte ci-dessus</small></i></label>
+                                            for="wordCounterTextArea" style="margin-left: 5px;"><i><small>Entrer votre
+                                                    texte ci-dessus</small></i></label>
                                     </div>
                                 </form>
                             </div>
-                           
+
                         </div>
                         <!--textarea name="paragraph_text" cols="50" rows="10"
                             placeholder="Description 10 000 mots (max)"></textarea> -->
