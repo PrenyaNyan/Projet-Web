@@ -1,0 +1,42 @@
+select {
+    width: auto;
+    border: 0ch;
+    border-radius: 0%;
+    background-color: rgba(216, 208, 209, 0.952);
+    color: black;
+}
+SZS
+body {
+    background-color: rgb(255, 255, 255);
+    
+}
+input[type=text]{
+    box-sizing: border-box;
+    background-color: rgba(236, 235, 235, 0.747);
+    color: rgb(27, 27, 29);
+
+}
+
+/*.all{
+    display: flex;
+    flex-direction: column;
+    justify-content: space space-between;
+}
+
+main{
+    display: flex;
+    justify-content: space-between;
+}*/
+
+select:focus {
+    border: rgb(122, 122, 122);
+}
+
+.par1{
+    text-align: center;
+    background-color: rgb(252, 252, 252);
+}
+
+.part2{
+    text-align: center;
+}
