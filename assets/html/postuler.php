@@ -11,6 +11,50 @@
     <link rel="stylesheet" href="../css/oui.css">
 </head>
 
+
+
+
+
+
+
+<?php
+function connect()
+{
+
+    $db = "bddprojet";
+    $dbhost = "localhost";
+    $dbport = 3306;
+    $dbuser = "root";
+    $dbpasswd = "";
+
+    try {
+        $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
+        return $pdo;
+    } catch (PDOException $e) {
+        echo ('Erreur : ' . $e->getMessage());
+    }
+} // end connect 
+
+
+
+
+function post($file_name, $textareaA)
+{
+    $pdo = connect();
+    $stmt = $pdo->prepare("INSERT INTO `applyfor` (`cv`, `coverletter`) VALUES ('$file_name', '$textareaA');");
+
+    $stmt->execute();
+}
+?>
+
+
+
+
+
+
+
+
+
 <body class="bg-light">
 
 
@@ -20,7 +64,7 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <img src="https://cdn.discordapp.com/attachments/950033739604434965/950403057567551528/logo.png" class="bi me-2" style="width: 100px;">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-black">Home</a></li>
+                    <li><a href="http://localhost/assets/html/accueil.php" class="nav-link px-2 text-black">Home</a></li>
                     <li><a href="#" class="nav-link px-2 text-black">Features</a></li>
                     <li><a href="#" class="nav-link px-2 text-black">Pricing</a></li>
                     <li><a href="#" class="nav-link px-2 text-black">FAQs</a></li>
@@ -46,9 +90,13 @@
 
 
     <div class="m-4">
+
+
         <div>
-            <button type="button" class="btn btn-dark text-light me-2 m-2">Retour</button>
-        </div class="">
+            <form action="http://localhost/assets/html/accueil.php">
+                <button type="submit" class="btn btn-dark text-light me-2 m-2">Retour</button>
+            </form>
+        </div>
 
         <div class="row align-items-md-stretch m-3">
             <div class="col-md-6">
@@ -83,24 +131,52 @@
                     </div>
                 </div>
             </div>
-            <formulaire class="col-md-6">
+
+
+
+
+
+
+
+
+
+
+            <form method="get" action="postuler.php" class="col-md-6">
                 <div class="h-100 p-5 bg-dark text-white border rounded-3">
                     <h2 class="d-inline-block mb-2">CV</h2>
                     <div class="row align-items-md-stretch">
                         <libellé>Sélectionner le CV à envoyer</libellé>
                         <div>
-                            <input type="file" accept=".pdf">
+                            <input name="file_name" type="file" accept=".pdf">
                             </input>
                         </div>
                     </div>
                     <label for="motivation">Motivation</label><br>
-                    <textarea name="textareaA" placeholder="Texte de motivation (5000 caractères MAX)" required="required" id="" maxlength="5000" cols="80" rows="15" class=""></textarea>
+                    <textarea name="textareaA" placeholder="Texte de motivation (5000 caractères MAX)" id="" maxlength="5000" cols="80" rows="15" class="form-control"></textarea>
                     <div id="textareaAError" class="counter"><span>0</span> caractères (5000 max)</div>
                     <div class="d-flex justify-content-end">
                         <input type="submit" name="submitInfo" value="Postuler" />
                     </div>
                 </div>
-            </formulaire>
+            </form>
+
+            <?php
+            if (isset($_GET["file_name"], $_GET["textareaA"])) {
+                echo ($_GET["file_name"]);
+                echo ($_GET["textareaA"]);
+                post($_GET["file_name"], $_GET["textareaA"]);
+
+            }
+            ?>
+
+
+
+
+
+
+
+
+
 
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
