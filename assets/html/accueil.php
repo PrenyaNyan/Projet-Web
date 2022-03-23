@@ -132,49 +132,9 @@
 
 
 
-
-  <div class="container announceBackground">
-    <div class="row">
-      <a href="https://m.media-amazon.com/images/I/4139Lu-53+L._AC_.jpg">
-      <div class="col-sm-8">
-        <strong class="d-inline-block mb-2 text-primary">
-          <font style="vertical-align: inherit;">Entreprise1</font>
-        </strong>
-        <h3 class="mb-0">
-          <font style="vertical-align: inherit;">Nom de l'annonce</font>
-        </h3>
-        <div class="mb-1 text-muted">
-          <font style="vertical-align: inherit;">Date du stage</font>
-        </div>
-        <p class="card-text mb-auto">
-          <font style="vertical-align: inherit;">Début de la description de l'annonce, blablablablablabla...</font>
-        </p>
-        </a>
-
-        <!--
-        <a href="" class="consultAnnounce">
-          <font style="vertical-align: inherit;">consulter l'annonce</font>
-        </a>
--->
-
-      </div>
-
-      <div class="col-sm-3">
-        <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" alt="" width="100%" style="border-radius: 8px;"/>
-        </svg>
-
-
-      </div>
-      <div class="col-sm-offset-0 col-sm-1">
-        <button id="likebutton" class="marginHeart">
-          <i class="far fa-heart fa-2x" id="heartimg"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  
-
+  <?php
+  require('../php/queryannounce.php');
+  ?>
 
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
