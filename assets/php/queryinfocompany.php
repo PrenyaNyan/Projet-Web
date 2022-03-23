@@ -1,11 +1,15 @@
 <?php
+if (empty($_POST["id"])) {
+    header("Location: /assets/html/login.php");
+    exit();
+}
 try {
     $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
                             FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location inner JOIN save ON offer.ID_Offer = save.ID_Offer 
                             inner JOIN users ON save.ID_User = users.ID_User 
                             inner JOIN company on offer.ID_Company = company.ID_Company 
                             WHERE offer.ID_Offer = ?;");
-    $stmt->bindParam(1, $$_GET['id']["newsession"]);
+    $stmt->bindParam(1, $_POST['id']);
     $stmt->execute();
     $res = $stmt->fetchAll();
     $stmt->closeCursor();
