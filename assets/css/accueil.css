@@ -71,9 +71,19 @@
 }
 
 
-.consultAnnounce {
+.buttonAnnounce {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: auto;
+    height: 25px;
+    font-size: small;
 }
 
+.buttonPosition {
+    margin-top: 2%;
+}
+
+.lamarge {
+    margin-bottom: 20px;
+}
