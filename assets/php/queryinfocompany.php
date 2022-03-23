@@ -4,7 +4,8 @@ try {
                             FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location inner JOIN save ON offer.ID_Offer = save.ID_Offer 
                             inner JOIN users ON save.ID_User = users.ID_User 
                             inner JOIN company on offer.ID_Company = company.ID_Company 
-                            WHERE offer.ID_Offer = 2;");
+                            WHERE offer.ID_Offer = ?;");
+    $stmt->bindParam(1, $$_GET['id']["newsession"]);
     $stmt->execute();
     $res = $stmt->fetchAll();
     $stmt->closeCursor();
@@ -13,8 +14,8 @@ try {
     foreach ($res as $row) {
         $buffer .= '
         <div class="h-100 p-5 row rounded-3">
-        <h2 class="text-center p-1">'. $row['COMPANYNAME'] .'</h2>
-        <h6 class="text-center p-1">'. $row['COMPANYDESC'] .'</h6>
+        <h2 class="text-center p-1">' . $row['COMPANYNAME'] . '</h2>
+        <h6 class="text-center p-1">' . $row['COMPANYDESC'] . '</h6>
         <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" class="mx-auto" style="width: 500px" ;>
         <div class="d-flex justify-content-center rating rating2 m-2">
             <div class="rate">
@@ -31,19 +32,18 @@ try {
             </div>
         </div>
         <div class="card-text mb-auto text-center p-2">
-            <span>'. $row['OFFERNAME'] .'</span> /
-            <span>'. $row['EMAIL'] .'</span> / Place disponible : 
-            <span>' . $row['NBPLACE'] .'</span> / Date :
-            <span>'.$row['STARTDATE'].' | '.$row['ENDDATE'].'</span>
+            <span>' . $row['OFFERNAME'] . '</span> /
+            <span>' . $row['EMAIL'] . '</span> / Place disponible : 
+            <span>' . $row['NBPLACE'] . '</span> / Date :
+            <span>' . $row['STARTDATE'] . ' | ' . $row['ENDDATE'] . '</span>
         </div>
         <div>
-            <p class="text-center">'. $row['OFFERDESC'] .'</p>
+            <p class="text-center">' . $row['OFFERDESC'] . '</p>
         </div>
     </div>';
     }
     echo $buffer;
-
 } catch (\Throwable $th) {
-    echo '<option value="erreur">Erreur de connexion a la base de données</option>';
-    echo $th;
+    echo '<div class="alert alert-danger" role="alert">
+    This is a danger alert—check it out!</div>';
 }
