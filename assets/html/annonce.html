@@ -64,97 +64,157 @@
                     <fieldset>
                         <legend>INFORMATION</legend>
 
-                        <br>
 
-                        <label for="nom">Nom de l'entreprise : </label>
-                        &emsp; &emsp; &emsp; &emsp; &emsp;
-                        <label for="Lien">Lien du site de l'entreprise : </label>
+                        <div class="row">
 
-                        <br>
+                            <div class="container containerFiltre">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="firstName" class="form-label" _msthash="2295839"
+                                            _msttexthash="93574">Nom de
+                                            l'entreprise </label>
+                                        <input type="text" class="form-control" id="Name" placeholder="" value=""
+                                            required="">
+                                        <div class="invalid-feedback" _msthash="2152878" _msttexthash="637039"
+                                            _msthidden="1">
+                                            Valid name is required.
+                                        </div>
+                                    </div>
 
-                        <input type="text" name="nom" id="nom" required="">
-                        &emsp; &emsp; &emsp;
+                                    <div class="col-sm-3">
+                                        <label for="Lien" class="form-label" _msthash="2296086"
+                                            _msttexthash="31395">Lien du
+                                            site de l'entreprise </label>
+                                        <input type="text" class="form-control" id="Lien" placeholder="" value=""
+                                            required="">
+                                        <div class="invalid-feedback" _msthash="2153099" _msttexthash="592748"
+                                            _msthidden="1">
+                                            Valid tag is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <input type="text" name="Lien" id="Lien" required="">
+                            <div class="container containerFiltre">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="tag" class="form-label" _msthash="2297568"
+                                            _msttexthash="56784">TAG</label>
+                                        <select class="form-select" id="tag" required="">
+                                            <option value="" _msthash="244218" _msttexthash="101647">Sélectionner...
+                                            </option>
+                                            <option _msthash="244400" _msttexthash="154310">tag1</option>
+                                            <option _msthash="244400" _msttexthash="154310">tag2</option>
+                                            <option _msthash="244400" _msttexthash="154310">tag3</option>
+                                            <option _msthash="244400" _msttexthash="154310">tag4</option>
+                                            <option _msthash="244400" _msttexthash="154310">tag5</option>
+                                        </select>
+                                        <div class="invalid-feedback" _msthash="2154282" _msttexthash="631839"
+                                            _msthidden="1">
+                                            Please provide a valid year.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <label for="Name" class="form-label" _msthash="2296086" _msttexthash="31395">TAG
+                                            supplémentaire</label>
+                                        <input type="text" class="form-control" id="name" placeholder="" value=""
+                                            required="">
+                                        <div class="invalid-feedback" _msthash="2153099" _msttexthash="592748"
+                                            _msthidden="1">
+                                            Valid tag is required.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <label for="email" class="form-label" _msthash="2296580"
+                                            _msttexthash="420017">Courriel
+                                            de l'entreprise</label>
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="you@example.com" _mstplaceholder="274417">
+                                        <div class="invalid-feedback" _msthash="2153541" _msttexthash="1993589"
+                                            _msthidden="1">
+                                            Please enter a valid email address for shipping updates.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="container containerFiltre">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="tel" class="form-label" _msthash="2296580"
+                                            _msttexthash="420017">Numéro de
+                                            Téléphone </label>
+                                        <input type="text" class="form-control" id="tel" placeholder="0695614597"
+                                            _mstplaceholder="274417">
+                                        <div class="invalid-feedback" _msthash="2153541" _msttexthash="1993589"
+                                            _msthidden="1">
+                                            Please enter a valid number for shipping updates.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="ville" class="form-label" _msthash="2297074"
+                                            _msttexthash="407797">ville</label>
+                                        <input type="text" class="form-control" id="address2"
+                                            placeholder="Saint-Nazaire" _mstplaceholder="395733">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="address" class="form-label" _msthash="2296827"
+                                            _msttexthash="94237">Adresse</label>
+                                        <input type="text" class="form-control" id="address"
+                                            placeholder="60, rue Michel ange" required="" _mstplaceholder="168753">
+                                        <div class="invalid-feedback" _msthash="2153762" _msttexthash="926601"
+                                            _msthidden="1">
+                                            Please enter your shipping town.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container containerFiltre">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="year" class="form-label" _msthash="2297568" _msttexthash="56784">Année
+                                        d'étude</label>
+                                    <select class="form-select" id="year" required="">
+                                        <option value="" _msthash="244218" _msttexthash="101647">Sélectionner...
+                                        </option>
+                                        <option _msthash="244400" _msttexthash="154310">BAC +1</option>
+                                        <option _msthash="244400" _msttexthash="154310">BAC +2</option>
+                                        <option _msthash="244400" _msttexthash="154310">BAC +3</option>
+                                        <option _msthash="244400" _msttexthash="154310">BAC +4</option>
+                                        <option _msthash="244400" _msttexthash="154310">BAC +5</option>
+                                    </select>
+                                    <div class="invalid-feedback" _msthash="2154282" _msttexthash="631839"
+                                        _msthidden="1">
+                                        Please provide a valid year.
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-3">
+                                    <label for="firstName" class="form-label" _msthash="2295839"
+                                        _msttexthash="93574">Date
+                                        de début : </label>
+                                    <input class="form-select LastInput" type="date">
+
+                                </div>
+
+                                <div class="col-sm-3">
+
+                                    <label for="dated" class="form-label" _msthash="2295839" _msttexthash="93574">Date
+                                        de
+                                        fin : </label>
+                                    <input class="form-select LastInput" type="date">
+                                </div>
+                            </div>
+                        </div>
+
 
                         <br><br>
-
-                        <label for="année">Années d'étude : </label>
-                        <br>
-                        <select>
-                            <option value="année">BAC +1</option>
-                            <option value="année">BAC +2</option>
-                            <option value="année">BAC +3</option>
-                            <option value="année">BAC +4</option>
-                            <option value="année">BAC +5</option>
-                            
-                        </select>
-                        <br><br>
-
-                        <label for="TAG">TAG : </label>
-                        &emsp;&emsp;&emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp; &emsp;
-                        <label for="TAGSUP">TAG supplémentaire :</label>
-                        <br>
-                        <select>
-                            <option value="TAG">tag1</option>
-                            <option value="TAG">tag2</option>
-                            <option value="TAG">tag3</option>
-                            <option value="TAG">tag4</option>
-                            <option value="TAG">tag5</option>
-                            <option value="TAG">tag6</option>
-                            <option value="TAG">tag7</option>
-                            <option value="TAG">tag8</option>
-                            <option value="TAG">tag9</option>
-                            <option value="TAG">tag10</option>
-                            <option value="TAG">tag11</option>
-                        </select>
-
-                        &emsp;&emsp; &emsp; &emsp; &emsp; &emsp;&emsp; &emsp; &emsp; &emsp;
-
-                        <input type="text" name="TAGSUP" id="TAGSUP" required="">
-                        <br><br>
-
-                        <label for="email">Email : </label>
-
-                        &emsp;&emsp;&emsp; &emsp; &emsp; &emsp; &emsp;
-
-                        <label for="tel">N° Téléphone : </label>
-                        <br>
-                        <input type="text" name="email" id="email" required="">
-
-                        &emsp;&emsp;&emsp;&emsp;
-
-                        <input type="text" name="tel" id="tel" required="">
-                        <br><br>
-                        <label for="ville">Ville : </label>
-                        &emsp; &emsp; &emsp;&emsp; &emsp; &emsp;&emsp; &emsp; &emsp;
-
-
-                        <label for="adresse">Adresse : </label>
-
-                        <br>
-                        <input type="text" name="ville" id="ville" required="">
-
-                        &emsp; &emsp; &emsp;&emsp;
-
-                        <input type="text" name="adresse" id="adresse" required="">
-
-                        <br><br>
-
-                        <label for="dated">Date de début :</label>
-                        &emsp; &emsp; &emsp;
-                        <label for="datef">Date de fin : </label>
-                        <br>
-
-                        <input type="date" id="start" name="trip-start" value="jj/mm/aaaa" min="2022-03-24"
-                            max="2024-12-31">
-                        &emsp; &emsp; &emsp;
-
-                        <input type="date" id="start" name="trip-start" value="jj/mm/aaaa" min="2022-03-24"
-                            max="2025-12-31">
-                        <br><br>
-                        <label for="motivation">Description :</label>
-                        <br>
 
                         <div class="row ">
                             <div class="col-lg-9">
@@ -162,15 +222,13 @@
                                     <div class="form-group">
                                         <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
                                         <div class="card border-bottom-0" style="margin-bottom: 0 !important;">
-                                            <p class="card-header" style="font-size: 1.25rem;"><span
-                                                    id="TextArearesultCharacters">0</span> Mots/10 000
+                                            <p class="card-header" style="font-size: 1.25rem;"> Description
                                             </p>
 
 
 
-                                            
-                                        </div><textarea class="form-control"
-                                            id="wordCounterTextArea" rows="12"
+
+                                        </div><textarea class="form-control" id="wordCounterTextArea" rows="12"
                                             placeholder="Paste text here or start typing"></textarea><label
                                             for="wordCounterTextArea" style="margin-left: 5px;"><i><small>Entrer votre
                                                     texte ci-dessus</small></i></label>
@@ -182,7 +240,7 @@
                         <!--textarea name="paragraph_text" cols="50" rows="10"
                             placeholder="Description 10 000 mots (max)"></textarea> -->
 
-                        <br>
+
                         <button type="submit" class="btn btn-secondary btn-lg" id="Submit">Soumettre</button>
                         &emsp;&emsp;
                         <button type="reset" class="btn btn-secondary btn-lg" id="reset">Réinitialiser</button>
