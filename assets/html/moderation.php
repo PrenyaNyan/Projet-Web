@@ -12,6 +12,8 @@ require('../php/isnotconnected.php');
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../css/moderation.css">
 
+    
+
 </head>
 
 <body>
@@ -40,128 +42,6 @@ require('../php/isnotconnected.php');
         </div>
     </header>
 
-    <div class="container tab-pane fade container active show">
-        <h1 style="text-align: center; margin-top: 30px">Modération des compte</h1>
-        <div class="main border rounded">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search this blog">
-                <div class="input-group-append">
-                    <button class="btn btn-secondary" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="contenueblock">
-                <?php
-                require('../php/createPDO.php');
-
-                ?>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-                <div class="border contenue">Ouai Ouai le contenue</div>
-
-
-            </div>
-        </div>
-
-    </div>
     <nav class="container" style="margin-top: 15px;">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <?php
@@ -172,13 +52,23 @@ require('../php/isnotconnected.php');
     </nav>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show container active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
-            <?php
-
-            ?>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                
+                <?php
+                require('../php/moderationtabuser1.php');
+                ?>
+            </div>
         </div>
+
+
+
         <div class="tab-pane fade show container" id="nav-company" role="tabpanel" aria-labelledby="nav-company-tab">
-            <?php
-            ?>
+
+
+        </div>
+        <div class="tab-pane fade show container" id="nav-offer" role="tabpanel" aria-labelledby="nav-offer-tab">
+
+
         </div>
     </div>
 
@@ -186,7 +76,7 @@ require('../php/isnotconnected.php');
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/likebutton1.js"></script>
+    <script src="../js/moderation.js"></script>
 </body>
 
 </html>
