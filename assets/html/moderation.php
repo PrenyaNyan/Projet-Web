@@ -12,7 +12,7 @@ require('../php/isnotconnected.php');
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../css/moderation.css">
 
-    
+
 
 </head>
 
@@ -53,9 +53,66 @@ require('../php/isnotconnected.php');
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show container active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
             <div class="accordion accordion-flush" id="accordionFlushExample">
-                
+                <button style="float: right; margin: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Create a user
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <form action="../html/moderation.php" method="post">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">User creation</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="accordion-body">
+
+                                        <div class="row mb-4">
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="floatingFirstname" placeholder="Firstname" name="createfirstname" value="">
+                                                    <label for="floatingFirstname">First name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="floatingLastname" placeholder="Lastname" name="createlastname" value="">
+                                                    <label for="floatingLastname">Last name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-4">
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input class="form-control FirstInput" id="floatingUsername" placeholder="Username" name="createusername" value="">
+                                                    <label for="floatingUsername">Username</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input class="form-control LastInput" id="floatingPassword" placeholder="Password" name="createpassword" value="">
+                                                    <label for="floatingPassword">Password</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-floating col-sm-3">
+                                            <?php
+                                            require('../php/moderationtabusercreate.php');
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <?php
-                require('../php/moderationtabuser1.php');
+                require('../php/moderationtabuserupdate.php');
                 ?>
             </div>
         </div>
@@ -63,11 +120,80 @@ require('../php/isnotconnected.php');
 
 
         <div class="tab-pane fade show container" id="nav-company" role="tabpanel" aria-labelledby="nav-company-tab">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <button style="float: right; margin: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Create a user
+                </button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <form action="../html/moderation.php" method="post">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">User creation</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="accordion-body">
+
+                                        <div class="row mb-4">
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="floatingFirstname" placeholder="Firstname" name="createfirstname" value="">
+                                                    <label for="floatingFirstname">First name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="floatingLastname" placeholder="Lastname" name="createlastname" value="">
+                                                    <label for="floatingLastname">Last name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-4">
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input class="form-control FirstInput" id="floatingUsername" placeholder="Username" name="createusername" value="">
+                                                    <label for="floatingUsername">Username</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input class="form-control LastInput" id="floatingPassword" placeholder="Password" name="createpassword" value="">
+                                                    <label for="floatingPassword">Password</label>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
+
+                                        <div class="form-floating col-sm-3">
+                                            <?php
+                                            require('../php/moderationtabusercreate.php');
+                                            ?>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                require('../php/moderationtabuserupdate.php');
+                ?>
+            </div>
         </div>
-        <div class="tab-pane fade show container" id="nav-offer" role="tabpanel" aria-labelledby="nav-offer-tab">
 
+        <div class="tab-pane fade show container" id="nav-offer" role="tabpanel" aria-labelledby="nav-offer-tab">
+            offer
 
         </div>
     </div>

@@ -47,39 +47,39 @@ try {
     $stmt->closeCursor();
 
     $buffer = "";
-    $queryoption = '';
+    $createuseroption = '';
     foreach ($res as $row) {
         if ($row['ID_Session'] == 1) {
-            $queryoption = '    <option value="1" selected>Admin</option>
+            $createuseroption = '    <option value="1" selected>Admin</option>
                                 <option value="2">Pilote</option>
                                 <option value="4">Delegue</option>
                                 <option value="3">Etudiant</option>';
         } else if ($row['ID_Session'] == 2) {
-            $queryoption = '    <option value="2" selected>Pilote</option>
+            $createuseroption = '    <option value="2" selected>Pilote</option>
                                 <option value="4">Delegue</option>
                                 <option value="3">Etudiant</option>';
             if ($currentsession == 1) {
-                $queryoption .= '<option value="1">Admin</option>';
+                $createuseroption .= '<option value="1">Admin</option>';
             }
         } elseif ($row['ID_Session'] == 4) {
-            $queryoption = '    <option value="4" selected>Delegue</option>
+            $createuseroption = '    <option value="4" selected>Delegue</option>
                                 <option value="3">Etudiant</option>';
             if ($currentsession == 2 || $currentsession == 1) {
-                $queryoption .= '<option value="2">Pilote</option>';
+                $createuseroption .= '<option value="2">Pilote</option>';
             }
             if ($currentsession == 1) {
-                $queryoption .= '<option value="1">Admin</option>';
+                $createuseroption .= '<option value="1">Admin</option>';
             }
         } elseif ($row['ID_Session'] == 3) {
-            $queryoption = '<option value="3" selected >Etudiant</option>';
+            $createuseroption = '<option value="3" selected >Etudiant</option>';
             if ($currentsession == 4 || $currentsession == 2 || $currentsession == 1) {
-                $queryoption .= '<option value="4">Delegue</option>';
+                $createuseroption .= '<option value="4">Delegue</option>';
             }
             if ($currentsession == 2 || $currentsession == 1) {
-                $queryoption .= '<option value="2">Pilote</option>';
+                $createuseroption .= '<option value="2">Pilote</option>';
             }
             if ($currentsession == 1) {
-                $queryoption .= '<option value="1">Admin</option>';
+                $createuseroption .= '<option value="1">Admin</option>';
             }
         }
         $buffer .= '    <div class="accordion-item">
@@ -126,7 +126,7 @@ try {
                                             <div class="col-sm-3">
                                                 <div class="form-floating">
                                                     <select class="form-select" name="sessionuser" aria-label="Default select example">
-                                                    ' . $queryoption . '
+                                                    ' . $createuseroption . '
                                                     </select>
                                                 </div>
                                             </div>
