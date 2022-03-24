@@ -144,6 +144,7 @@ try {
                                         <button type="submit" class="btn btn-primary btn-block mb-4" value="update" name="send">Update</button>
 
                                         <button type="submit" class="btn btn-secondary btn-block mb-4" value="delete" name="send">Delete</button>
+                                        <input type="hidden" name="tabmoderation" value="company">
                                     </form>
                                 </div>
                             </div>

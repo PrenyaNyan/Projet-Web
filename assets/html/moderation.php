@@ -51,7 +51,7 @@ require('../php/isnotconnected.php');
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show container active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
+        <div class="tab-pane fade show container <?php if (empty($_POST["tabmoderation"])) { echo "active";}if(isset($_POST["tabmoderation"])){if($_POST["tabmoderation"] == "user"){echo "active";}}?> " id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <button style="float: right; margin: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Create a user
@@ -107,6 +107,7 @@ require('../php/isnotconnected.php');
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Create</button>
                                 </div>
+                                <input type="hidden" name="tabmoderation" value="user">
                             </form>
                         </div>
                     </div>
@@ -119,7 +120,7 @@ require('../php/isnotconnected.php');
 
 
 
-        <div class="tab-pane fade show container" id="nav-company" role="tabpanel" aria-labelledby="nav-company-tab">
+        <div class="tab-pane fade show container <?php if(isset($_POST["tabmoderation"])){if($_POST["tabmoderation"] == "company"){echo "active";}}?>" id="nav-company" role="tabpanel" aria-labelledby="nav-company-tab">
             <div class="accordion accordion-flush" id="accordionFlushExample">
 
 
@@ -163,6 +164,7 @@ require('../php/isnotconnected.php');
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Create</button>
                                 </div>
+                                <input type="hidden" name="tabmoderation" value="company">
                             </form>
                         </div>
                     </div>
