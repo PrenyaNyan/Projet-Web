@@ -17,44 +17,6 @@
 
 
 
-<?php
-function connect()
-{
-
-    $db = "bddprojet";
-    $dbhost = "localhost";
-    $dbport = 3306;
-    $dbuser = "root";
-    $dbpasswd = "";
-
-    try {
-        $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
-        return $pdo;
-    } catch (PDOException $e) {
-        echo ('Erreur : ' . $e->getMessage());
-    }
-} // end connect 
-
-
-
-
-function post($file_name, $textareaA)
-{
-    $pdo = connect();
-    $stmt = $pdo->prepare("INSERT INTO `applyfor` (`cv`, `coverletter`) VALUES ('$file_name', '$textareaA');");
-
-    $stmt->execute();
-}
-?>
-
-
-
-
-
-
-
-
-
 <body class="bg-light">
 
 
@@ -103,6 +65,9 @@ function post($file_name, $textareaA)
                 <?php
                 require('../php/createPDO.php');
                 require('../php/queryinfocompany.php');
+                require('../php/applycreate.php');
+                    echo ($_POST["ID_Session"]);
+
                 ?>
             </div>
 
@@ -115,7 +80,7 @@ function post($file_name, $textareaA)
 
 
 
-            <form method="get" action="postuler.php" class="col-md-6">
+            <form method="post" action="assets\php\applycreate.php.php" class="col-md-6">
                 <div class="h-100 p-5 bg-dark text-white border rounded-3">
                     <h2 class="d-inline-block mb-2">CV</h2>
                     <div class="row align-items-md-stretch">
@@ -133,14 +98,6 @@ function post($file_name, $textareaA)
                     </div>
                 </div>
             </form>
-
-            <?php
-            if (isset($_GET["file_name"], $_GET["textareaA"])) {
-                echo ($_GET["file_name"]);
-                echo ($_GET["textareaA"]);
-                post($_GET["file_name"], $_GET["textareaA"]);
-            }
-            ?>
 
 
 
