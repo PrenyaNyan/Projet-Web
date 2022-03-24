@@ -167,11 +167,10 @@ require('../php/isnotconnected.php');
                         </div>
                     </div>
                 </div>
-
-
-
                 <?php
-                require('../php/moderationtabuserupdate.php');
+                require('../php/moderationtabcompanycreate.php');
+                require('../php/moderationtabcompanyupdate.php');
+
                 ?>
             </div>
         </div>
