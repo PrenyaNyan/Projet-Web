@@ -121,16 +121,18 @@ require('../php/isnotconnected.php');
 
         <div class="tab-pane fade show container" id="nav-company" role="tabpanel" aria-labelledby="nav-company-tab">
             <div class="accordion accordion-flush" id="accordionFlushExample">
-                <button style="float: right; margin: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Create a user
+
+
+                <button style="float: right; margin: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    Create company
                 </button>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <form action="../html/moderation.php" method="post">
+                            <form action="" method="post">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">User creation</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Company creation</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -139,42 +141,21 @@ require('../php/isnotconnected.php');
                                         <div class="row mb-4">
                                             <div class="col">
                                                 <div class="form-floating">
-                                                    <input class="form-control" id="floatingFirstname" placeholder="Firstname" name="createfirstname" value="">
-                                                    <label for="floatingFirstname">First name</label>
+                                                    <input class="form-control" id="floatingCompanyname" placeholder="Companyname" name="createcompanyname" value="">
+                                                    <label for="floatingCompanyname">Name</label>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-floating">
-                                                    <input class="form-control" id="floatingLastname" placeholder="Lastname" name="createlastname" value="">
-                                                    <label for="floatingLastname">Last name</label>
+                                                    <input class="form-control" id="floatingEmail" placeholder="Email" name="createemail" value="">
+                                                    <label for="floatingEmail">Email</label>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="row mb-4">
-                                            <div class="col">
-                                                <div class="form-floating">
-                                                    <input class="form-control FirstInput" id="floatingUsername" placeholder="Username" name="createusername" value="">
-                                                    <label for="floatingUsername">Username</label>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-floating">
-                                                    <input class="form-control LastInput" id="floatingPassword" placeholder="Password" name="createpassword" value="">
-                                                    <label for="floatingPassword">Password</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="form-floating col-sm-3">
-                                            <?php
-                                            require('../php/moderationtabusercreate.php');
-                                            ?>
-
-
-
+                                        <div class="form-floating mb-4">
+                                            <textarea class="form-control" style="height: 150px; margin-bottom:-40px;" id="floatingDescription" placeholder="Description" name="createdescription" value="" data-dl-input-translation="true"></textarea>
+                                            <label for="floatingDescription">Description</label>
                                         </div>
                                     </div>
                                 </div>
@@ -186,6 +167,9 @@ require('../php/isnotconnected.php');
                         </div>
                     </div>
                 </div>
+
+
+
                 <?php
                 require('../php/moderationtabuserupdate.php');
                 ?>
