@@ -1,14 +1,21 @@
 <?php
-if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["id"]) && isset($_POST["sessionuser"])) {
+if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["id"]) && isset($_POST["sessionuser"]) && isset($_POST["send"])) {
     try {
-        $stmt = $pdo->prepare(" UPDATE `users` SET `FIRSTNAME`=?, `LASTNAME`=?, `USERNAME`=?, `PASSWORD`=?, `ID_Session`=? WHERE users.ID_User = ?;");
+        if ($_POST['send'] == 'delete') {
+            $stmt = $pdo->prepare(" DELETE FROM `users` WHERE ID_User = ?;");
+            $stmt->bindParam(1, $_POST["id"]);
+        } else {
+            $stmt = $pdo->prepare(" UPDATE `users` SET `FIRSTNAME`=?, `LASTNAME`=?, `USERNAME`=?, `PASSWORD`=?, `ID_Session`=? WHERE users.ID_User = ?;");
 
-        $stmt->bindParam(1, $_POST["firstname"]);
-        $stmt->bindParam(2, $_POST["lastname"]);
-        $stmt->bindParam(3, $_POST["username"]);
-        $stmt->bindParam(4, $_POST["password"]);
-        $stmt->bindParam(5, $_POST["sessionuser"]);
-        $stmt->bindParam(6, $_POST["id"]);
+            $stmt->bindParam(1, $_POST["firstname"]);
+            $stmt->bindParam(2, $_POST["lastname"]);
+            $stmt->bindParam(3, $_POST["username"]);
+            $stmt->bindParam(4, $_POST["password"]);
+            $stmt->bindParam(5, $_POST["sessionuser"]);
+            $stmt->bindParam(6, $_POST["id"]);
+        }
+
+
         $stmt->execute();
         $res = $stmt->fetch();
         $stmt->closeCursor();
@@ -132,9 +139,12 @@ try {
                                             </div>
                                         </div>
 
-                                        <!-- Submit button -->
+
                                         <input type="hidden" value="' . $row['ID_User'] . '" name="id">
-                                        <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
+                                        <button type="submit" class="btn btn-primary btn-block mb-4" value="update" name="send">Update</button>
+
+                                        <button type="submit" class="btn btn-secondary btn-block mb-4" value="delete" name="send">Delete</button>
+                                        <input type="hidden" name="tabmoderation" value="company">
                                     </form>
                                 </div>
                             </div>
