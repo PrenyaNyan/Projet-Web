@@ -63,11 +63,10 @@
         <div class="row align-items-md-stretch m-3">
             <div class="col-md-6">
                 <?php
+                unset($_SESSION["newsession"]);
                 require('../php/createPDO.php');
                 require('../php/queryinfocompany.php');
                 require('../php/applycreate.php');
-                    echo ($_POST["ID_Session"]);
-
                 ?>
             </div>
 
