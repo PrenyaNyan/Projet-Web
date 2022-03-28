@@ -13,4 +13,4 @@ try {
 } catch (\Throwable $th) {
     echo '<option value="erreur" class="navmid">Erreur de connexion a la base de données</option>';
     echo $th;
-}
+}?>
