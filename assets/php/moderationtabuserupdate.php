@@ -9,11 +9,11 @@ try {
     $stmt->closeCursor();
     $currentsession = $res['ID_Session'];
 
-if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["id"]) && isset($_POST["sessionuser"]) && isset($_POST["send"])) {
+if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["iduser"]) && isset($_POST["sessionuser"]) && isset($_POST["send"])) {
     try {
         if ($_POST['send'] == 'delete') {
             $stmt = $pdo->prepare(" DELETE FROM `users` WHERE ID_User = ?;");
-            $stmt->bindParam(1, $_POST["id"]);
+            $stmt->bindParam(1, $_POST["iduser"]);
         } else {
             $stmt = $pdo->prepare(" UPDATE `users` SET `FIRSTNAME`=?, `LASTNAME`=?, `USERNAME`=?, `PASSWORD`=?, `ID_Session`=? WHERE users.ID_User = ?;");
 
@@ -22,7 +22,7 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["use
             $stmt->bindParam(3, $_POST["username"]);
             $stmt->bindParam(4, $_POST["password"]);
             $stmt->bindParam(5, $_POST["sessionuser"]);
-            $stmt->bindParam(6, $_POST["id"]);
+            $stmt->bindParam(6, $_POST["iduser"]);
         }
 
 
@@ -139,7 +139,7 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["use
                                         </div>
 
 
-                                        <input type="hidden" value="' . $row['ID_User'] . '" name="id">
+                                        <input type="hidden" value="' . $row['ID_User'] . '" name="iduser">
                                         <button type="submit" class="btn btn-primary btn-block mb-4" value="update" name="send">Update</button>
 
                                         <button type="submit" class="btn btn-secondary btn-block mb-4" value="delete" name="send">Delete</button>

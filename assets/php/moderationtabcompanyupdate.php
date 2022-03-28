@@ -1,9 +1,9 @@
 <?php
-if (isset($_POST["updatecompanyname"]) && isset($_POST["updateemail"]) && isset($_POST["updatedescription"]) && isset($_POST["companyusername"]) && isset($_POST["send"]) && isset($_POST["id"])) {
+if (isset($_POST["updatecompanyname"]) && isset($_POST["updateemail"]) && isset($_POST["updatedescription"]) && isset($_POST["companyusername"]) && isset($_POST["send"]) && isset($_POST["idcompany"])) {
     try {
         if ($_POST['send'] == 'delete') {
             $stmt = $pdo->prepare("DELETE FROM `company` WHERE ID_Company = ?;");
-            $stmt->bindParam(1, $_POST["id"]);
+            $stmt->bindParam(1, $_POST["idcompany"]);
         } else {
             $stmt = $pdo->prepare("UPDATE `company` SET `NAME`=?,`EMAIL`=?,`DESCRIPTION`=?,`ID_User`=? 
                                     WHERE company.ID_Company = ?;");
@@ -12,7 +12,7 @@ if (isset($_POST["updatecompanyname"]) && isset($_POST["updateemail"]) && isset(
             $stmt->bindParam(2, $_POST["updateemail"]);
             $stmt->bindParam(3, $_POST["updatedescription"]);
             $stmt->bindParam(4, $_POST["companyusername"]);
-            $stmt->bindParam(5, $_POST["id"]);
+            $stmt->bindParam(5, $_POST["idcompany"]);
         }
 
 
@@ -113,7 +113,7 @@ try {
                                             </div>
                                         </div>
 
-                                        <input type="hidden" value="' . $row["ID_Company"] . '" name="id">
+                                        <input type="hidden" value="' . $row["ID_Company"] . '" name="idcompany">
                                         <button type="submit" class="btn btn-primary btn-block mb-4" value="update" name="send">Update</button>
                                         <button type="submit" class="btn btn-secondary btn-block mb-4" value="delete" name="send">Delete</button>
                                         <input type="hidden" name="tabmoderation" value="company">
