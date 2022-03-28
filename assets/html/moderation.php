@@ -73,7 +73,7 @@ require('../php/isnotconnected.php');
                                                             echo "active";
                                                         }
                                                     } ?> " id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush" id="accordionFlushExample1">
                 <button style="float: right; margin: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Create a user
                 </button>
@@ -146,7 +146,7 @@ require('../php/isnotconnected.php');
                                                             echo "active";
                                                         }
                                                     } ?>" id="nav-company" role="tabpanel" aria-labelledby="nav-company-tab">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush" id="accordionFlushExample2">
 
 
                 <button style="float: right; margin: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
@@ -197,7 +197,6 @@ require('../php/isnotconnected.php');
                 <?php
                 require('../php/moderationtabcompanycreate.php');
                 require('../php/moderationtabcompanyupdate.php');
-
                 ?>
             </div>
         </div>
@@ -207,7 +206,7 @@ require('../php/isnotconnected.php');
                                                             echo "active";
                                                         }
                                                     } ?>" id="nav-offer" role="tabpanel" aria-labelledby="nav-offer-tab">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush" id="accordionFlushExample3">
 
 
                 <button style="float: right; margin: 20px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
@@ -293,6 +292,9 @@ require('../php/isnotconnected.php');
 
     </div>
     </div>
+
+
+    <?php require('../php/disconnect.php') ?>
 
     <!-- <script src="/sw.js"></script> -->
 

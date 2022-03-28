@@ -36,13 +36,13 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["use
 
 
 
-    if ($res['ID_Session'] == 1 || $res['ID_Session'] == 2 || $res['ID_Session'] == 4) {
+    if ($currentsession == 1 || $currentsession == 2 || $currentsession == 4) {
         $querybuffer = '    SELECT * FROM `users` WHERE users.ID_Session = 3 OR users.ID_Session = 4 ';
 
-        if ($res['ID_Session'] == 1 || $res['ID_Session'] == 2) {
+        if ($currentsession == 1 || $currentsession == 2) {
             $querybuffer .= 'OR users.ID_Session = 2 ';
         }
-        if ($res['ID_Session'] == 1) {
+        if ($currentsession == 1) {
             $querybuffer .= 'OR users.ID_Session = 1';
         }
     }
@@ -90,11 +90,11 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["use
         }
         $buffer .= '    <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' . $row['ID_User'] . '" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' . $row['ID_User'] . '" aria-expanded="false" aria-controls="flush-collapseTwo">
                                     ' . $row['FIRSTNAME'] . ' ' . $row['LASTNAME'] . '
                                 </button>
                             </h2>
-                            <div id="flush-collapse' . $row['ID_User'] . '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div id="flush-collapse' . $row['ID_User'] . '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample1">
                                 <div class="accordion-body">
                                     <form action="../html/moderation.php" method="post">
                                         <!-- 2 column grid layout with text inputs for the first and last names -->

@@ -78,7 +78,7 @@ try {
                                     ' . $row["COMPANYNAME"] . '
                                 </button>
                             </h2>
-                            <div id="flush-collapse' . $row["ID_Company"] . '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div id="flush-collapse' . $row["ID_Company"] . '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample2">
                                 <div class="accordion-body">
                                     <form action="../html/moderation.php" method="post">
 

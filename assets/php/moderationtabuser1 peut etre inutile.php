@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["id"]) && isset($_POST["sessionuser"])) {
+/*if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["id"]) && isset($_POST["sessionuser"])) {
     try {
         $stmt = $pdo->prepare(" UPDATE `users` SET `FIRSTNAME`=?, `LASTNAME`=?, `USERNAME`=?, `PASSWORD`=?, `ID_Session`=? WHERE users.ID_User = ?;");
 
@@ -143,4 +143,4 @@ try {
     echo $buffer;
 } catch (\Throwable $th) {
     echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Vous n\'avez pas l\'autorisation suffisante pour cette action !</div>';
-}
+}*/
