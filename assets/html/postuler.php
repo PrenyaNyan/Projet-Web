@@ -1,3 +1,7 @@
+<?php
+require('../php/createPDO.php');
+require('../php/isnotconnected.php');
+?>
 <!doctype html>
 <html lang="fr">
 
@@ -40,19 +44,13 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <form action="assets\php\disconnect.php">
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </form>
+                            <li id="disconnect"><a class="dropdown-item" href="#">Sign out</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
 
-
-    <?php
-    require('../php/CreateHeader.php');
-    ?>
 
     <div class="m-4">
         <form>
@@ -144,6 +142,7 @@
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/scriptIndex.js"></script>
     <script src="..\js\scriptcompt.js"></script>
+    <script src="../js/disconnect.js"></script>
 
 </body>
 
