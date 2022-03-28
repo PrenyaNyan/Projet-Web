@@ -10,7 +10,7 @@ if (isset($_GET['FilterApply'])) {
     // $rate = $_GET['rate'];
     // afficher le résultat
     echo '<h3>Informations récupérées en utilisant GET</h3>';
-    echo /*'Annee : ' . $Annee . */' date : ' . $date . ' localisation : ' . $localisation /*. ' rate : ' . $rate */;
+    //echo /*'Annee : ' . $Annee . */' date : ' . $date . ' localisation : ' . $localisation /*. ' rate : ' . $rate */;
 
 
 
@@ -18,13 +18,35 @@ if (isset($_GET['FilterApply'])) {
 
 
     try {
-       $FILTER_DATE = ($date=='') ? '' : "offer.STARTDATE >= $date";
+        var_dump($date, $localisation);
+        if ($date != '' or $localisation != '') {
+            $WHERE = "WHERE";
+
+            if ($date != '' and $localisation != ''){
+                $et = "AND";
+            } else {
+                $et='';
+            }
+        } else {
+            $WHERE = '';
+            $et = '';
+        }
+
+       $FILTER_DATE = ($date=='') ? '' : "offer.STARTDATE >= '$date'";
+       $FILTER_LOCATION = ($localisation=='') ? '' : "location.ID_Location = $localisation";
+  
+       
+
+
        
        $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
                                 FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
-                                WHERE  location.ID_Location LIKE \'%' .$localisation. '%\' AND '.$FILTER_DATE.' ');
+                                '.$WHERE.' ' .$FILTER_DATE. ' '.$et.' ' .$FILTER_LOCATION. '   ;');
 
+
+        //echo $FILTER_DATE;
+        //echo $FILTER_LOCATION;
         $stmt->execute();
         $res = $stmt->fetchAll();
         $stmt->closeCursor();
