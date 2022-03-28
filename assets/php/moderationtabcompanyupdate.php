@@ -19,7 +19,6 @@ if (isset($_POST["updatecompanyname"]) && isset($_POST["updateemail"]) && isset(
         $stmt->execute();
         $res = $stmt->fetch();
         $stmt->closeCursor();
-
     } catch (\Throwable $th) {
         echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Erreur de connexion a la base de données</div>';
     }
@@ -39,40 +38,47 @@ try {
     $currentsession = $res['ID_Session'];
 
     if ($currentsession == 1 || $currentsession == 2 || $currentsession == 4) {
-        $querybuffer = 'SELECT ID_Company, company.NAME AS "COMPANYNAME", EMAIL, DESCRIPTION,users.ID_User, users.USERNAME FROM `company` INNER JOIN users ON company.ID_User = users.ID_User;';
+        $optioncreatecompany = 'SELECT users.USERNAME, users.ID_User FROM `users` ';
 
-        if ($currentsession == 4 || $currentsession == 2) {
-            $querybuffer .= 'WHERE company.ID_User = ?';
-            $stmt->bindParam(1, $currentsession);
-        }
-    }
-
-    if ($currentsession == 1) {
-        $stmt = $pdo->prepare('SELECT users.USERNAME, users.ID_User FROM `users`;');
+        $stmt = $pdo->prepare($optioncreatecompany);
         $stmt->execute();
         $res = $stmt->fetchAll();
         $stmt->closeCursor();
         $companyuser = "";
         foreach ($res as $row) {
-            $companyuser .= '<option value="'. $row["ID_User"] .'">' . $row["USERNAME"] . '</option>';
+            $companyuser .= '<option value="' . $row["ID_User"] . '">' . $row["USERNAME"] . '</option>';
         }
     }
 
-    $stmt = $pdo->prepare($querybuffer);
-    $stmt->execute();
-    $res = $stmt->fetchAll();
-    $stmt->closeCursor();
+    if ($currentsession == 1 || $currentsession == 2 || $currentsession == 4) {
+        $querybuffer = 'SELECT ID_Company, company.NAME AS "COMPANYNAME", EMAIL, DESCRIPTION,users.ID_User, users.USERNAME FROM `company` INNER JOIN users ON company.ID_User = users.ID_User ';
+
+        if ($currentsession == 4 || $currentsession == 2) {
+            $querybuffer .= "WHERE company.ID_User = ?;";
+            $stmt->bindParam(1, $currentsession);
+        }
+
+        $stmt = $pdo->prepare($querybuffer);
+        if ($currentsession == 4 || $currentsession == 2) {
+            $stmt->bindParam(1, $currentsession);
+        }
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        $stmt->closeCursor();
+    }
+
+
 
     $buffer = "";
     foreach ($res as $row) {
 
         $buffer .= '    <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse'.$row["ID_Company"].'" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' . $row["ID_Company"] . '" aria-expanded="false" aria-controls="flush-collapseOne">
                                     ' . $row["COMPANYNAME"] . '
                                 </button>
                             </h2>
-                            <div id="flush-collapse'.$row["ID_Company"].'" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div id="flush-collapse' . $row["ID_Company"] . '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <form action="../html/moderation.php" method="post">
 
@@ -100,14 +106,14 @@ try {
                                             <div class="col-sm-3">
                                                 <div class="form-floating">
                                                     <select class="form-select" name="companyusername" aria-label="Default select example">
-                                                        <option value="'. $row["ID_User"] .'" selected>' . $row["USERNAME"] . '</option>
-                                                        '.$companyuser.'
+                                                        <option value="' . $row["ID_User"] . '" selected>' . $row["USERNAME"] . '</option>
+                                                        ' . $companyuser . '
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <input type="hidden" value="'. $row["ID_Company"] .'" name="id">
+                                        <input type="hidden" value="' . $row["ID_Company"] . '" name="id">
                                         <button type="submit" class="btn btn-primary btn-block mb-4" value="update" name="send">Update</button>
                                         <button type="submit" class="btn btn-secondary btn-block mb-4" value="delete" name="send">Delete</button>
                                         <input type="hidden" name="tabmoderation" value="company">
@@ -119,4 +125,5 @@ try {
     echo $buffer;
 } catch (\Throwable $th) {
     echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Vous n\'avez pas l\'autorisation suffisante pour cette action !</div>';
+    echo $th;
 }

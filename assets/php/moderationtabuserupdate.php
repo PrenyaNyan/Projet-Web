@@ -1,4 +1,14 @@
 <?php
+try {
+    $stmt = $pdo->prepare(" SELECT ID_Session 
+                            FROM users 
+                            WHERE users.USERNAME = ?;");
+    $stmt->bindParam(1, $_SESSION["newsession"]);
+    $stmt->execute();
+    $res = $stmt->fetch();
+    $stmt->closeCursor();
+    $currentsession = $res['ID_Session'];
+
 if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["id"]) && isset($_POST["sessionuser"]) && isset($_POST["send"])) {
     try {
         if ($_POST['send'] == 'delete') {
@@ -26,16 +36,6 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["use
 
 
 
-
-try {
-    $stmt = $pdo->prepare(" SELECT ID_Session 
-                            FROM users 
-                            WHERE users.USERNAME = ?;");
-    $stmt->bindParam(1, $_SESSION["newsession"]);
-    $stmt->execute();
-    $res = $stmt->fetch();
-    $stmt->closeCursor();
-
     if ($res['ID_Session'] == 1 || $res['ID_Session'] == 2 || $res['ID_Session'] == 4) {
         $querybuffer = '    SELECT * FROM `users` WHERE users.ID_Session = 3 OR users.ID_Session = 4 ';
 
@@ -46,7 +46,6 @@ try {
             $querybuffer .= 'OR users.ID_Session = 1';
         }
     }
-    $currentsession = $res['ID_Session'];
 
     $stmt = $pdo->prepare($querybuffer);
     $stmt->execute();
@@ -144,7 +143,7 @@ try {
                                         <button type="submit" class="btn btn-primary btn-block mb-4" value="update" name="send">Update</button>
 
                                         <button type="submit" class="btn btn-secondary btn-block mb-4" value="delete" name="send">Delete</button>
-                                        <input type="hidden" name="tabmoderation" value="company">
+                                        <input type="hidden" name="tabmoderation" value="user">
                                     </form>
                                 </div>
                             </div>
