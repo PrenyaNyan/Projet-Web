@@ -310,7 +310,10 @@ require('../php/isnotconnected.php');
     </div>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 124c4ce74291783b8b7f38efb151884066592e75
     <!-- <script src="/sw.js"></script> -->
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
