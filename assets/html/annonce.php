@@ -75,16 +75,18 @@
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <label for="tag" class="form-label" _msthash="2297568"
-                                                    _msttexthash="56784">TAG</label>
+                                                    _msttexthash="56784">Salaire</label>
                                                 <select class="form-select" id="tag" required="">
                                                     <option value="" _msthash="244218" _msttexthash="101647">
                                                         Sélectionner...
                                                     </option>
-                                                    <option _msthash="244400" _msttexthash="154310">tag1</option>
-                                                    <option _msthash="244400" _msttexthash="154310">tag2</option>
-                                                    <option _msthash="244400" _msttexthash="154310">tag3</option>
-                                                    <option _msthash="244400" _msttexthash="154310">tag4</option>
-                                                    <option _msthash="244400" _msttexthash="154310">tag5</option>
+                                                    <option _msthash="244400" _msttexthash="154310">600</option>
+                                                    <option _msthash="244400" _msttexthash="154310">700</option>
+                                                    <option _msthash="244400" _msttexthash="154310">800</option>
+                                                    <option _msthash="244400" _msttexthash="154310">900</option>
+                                                    <option _msthash="244400" _msttexthash="154310">1000</option>
+                                                    <option _msthash="244400" _msttexthash="154310">1100</option>
+                                                    <option _msthash="244400" _msttexthash="154310">1200</option>
                                                 </select>
                                                 <div class="invalid-feedback" _msthash="2154282" _msttexthash="631839"
                                                     _msthidden="1">
@@ -94,8 +96,7 @@
 
                                             <div class="col-sm-3">
                                                 <label for="Name" class="form-label" _msthash="2296086"
-                                                    _msttexthash="31395">TAG
-                                                    supplémentaire</label>
+                                                    _msttexthash="31395">Référence</label>
                                                 <input type="text" class="form-control" id="name" placeholder=""
                                                     value="" required="">
                                                 <div class="invalid-feedback" _msthash="2153099" _msttexthash="592748"
@@ -239,45 +240,4 @@
 
 </html>
 
-<!--<div id="FormContent">
-    <div class="form-floating">
-        <input class="form-control FirstInput" id="floatingFirstName" placeholder="First Name" name="firstname">
-        <label for="floatingFirstName">First Name</label>
-    </div>
-    <div class="form-floating">
-        <input class="form-control MiddleInput" id="floatingLastName" placeholder="Last Name" name="lastname">
-        <label for="floatingLastName">Last Name</label>
-    </div>
-    <div class="form-floating">
-        <input class="form-control MiddleInput" id="floatingUsername" placeholder="Username" name="username">
-        <label for="floatingUsername">Username</label>
-    </div>
-    <div class="form-floating">
-        <input type="password" class="form-control MiddleInput" id="floatingSignUpPassord" placeholder="Password"
-            name="password">
-        <label for="floatingSignUpPassord">Password</label>
-    </div>
-    <div class="form-floating">
-        <input type="password" class="form-control MiddleInput" id="floatingPasswordConfirmation"
-            placeholder="PasswordConfirmation" name="passwordconfirm">
-        <label for="floatingPasswordConfirmation">Password Confirmation</label>
-    </div>
-    <div class="form-floating">
-        <select class="form-select LastInput" id="roleselect" name="roleselected">
-            <option selected="">Select a role</option>
-            <option value="1">Admin</option>
-            <option value="2">Pilote</option>
-            <option value="3">Etudiant</option>
-            <option value="4">Delegue</option>
-        </select>
-    </div>
-   
-
-</div>
-
-<div>
-            <form action="http://localhost/assets/html/accueil.php">
-                <button type="submit" class="btn btn-dark text-light me-2 m-2">Retour</button>
-            </form>
-        </div> -->
 
