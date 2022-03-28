@@ -1,34 +1,59 @@
 <?php
-try {
-    $stmt = $pdo->prepare(" SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER
-                            FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company
-                            ;");
-    //$stmt->bindParam(1, $_SESSION["ID_Offer"]);
-    $stmt->execute();
-    $res = $stmt->fetchAll();
-    $stmt->closeCursor();
-    $buffer = "";
+// Vérifier si le formulaire est soumis 
+if (isset($_GET['FilterApply'])) {
+    /* récupérer les données du formulaire en utilisant 
+       la valeur des attributs name comme clé 
+      */
+    //$Annee = $_GET['Annee'];
+    $date = $_GET['date'];
+    $localisation = $_GET['localisation'];
+    // $rate = $_GET['rate'];
+    // afficher le résultat
+    echo '<h3>Informations récupérées en utilisant GET</h3>';
+    echo /*'Annee : ' . $Annee . */' date : ' . $date . ' localisation : ' . $localisation /*. ' rate : ' . $rate */;
 
-    foreach ($res as $row) {
-        $buffer .= '
+
+
+
+
+
+    try {
+        $stmt = $pdo->prepare("SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
+                                FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
+                                inner JOIN location ON offer.ID_Location = location.ID_Location 
+                                WHERE  location.ID_Location LIKE '$localisation';");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        $stmt->closeCursor();
+        $buffer = "";
+
+
+
+
+
+
+
+        foreach ($res as $row) {
+            $buffer .= '
         <div class="container announceBackground lamarge">
         <div class="row">
     
           <div class="col-sm-8">
             <strong class="d-inline-block mb-2 text-primary">
-              <font style="vertical-align: inherit;">'. $row['NAMECOMPANY'] .'</font>
+              <font style="vertical-align: inherit;">' . $row['NAMECOMPANY'] . '</font>
             </strong>
             <h3 class="mb-0">
-              <font style="vertical-align: inherit;">'. $row['NAMEOFFER'] .'</font>
+              <font style="vertical-align: inherit;">' . $row['NAMEOFFER'] . '</font>
             </h3>
             <div class="mb-1 text-muted">
-              <font style="vertical-align: inherit;">'. $row['STARTDATE'].'/'.$row['ENDDATE'].'</font>
+              <font style="vertical-align: inherit;">' . $row['STARTDATE'] . '/' . $row['ENDDATE'] . '</font>
             </div>
             <p class="card-text mb-auto">
-              <font style="vertical-align: inherit;">'. $row['THEDESCRIPTION'] .'</font>
+              <font style="vertical-align: inherit;">' . $row['THEDESCRIPTION'] . '</font>
             </p>
             <form action="../html/postuler.php" method="post" class="buttonPosition">
-              <input type="hidden" name="id" value="'. $row['IDOFFER'] .'">
+              <input type="hidden" name="id" value="' . $row['IDOFFER'] . '">
               <button type="submit" class="btn btn-primary btn-lg buttonAnnounce">
                 <font style="vertical-align: inherit;">voir plus</font>
               </button>
@@ -48,11 +73,10 @@ try {
           </div>
         </div>
       </div>';
-        
+        }
+        echo $buffer;
+    } catch (\Throwable $th) {
+        echo '<option value="erreur">Erreur de connexion a la base de données</option>';
+        echo $th;
     }
-    echo $buffer;
-
-} catch (\Throwable $th) {
-    echo '<option value="erreur">Erreur de connexion a la base de données</option>';
-    echo $th;
 }

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../css/globalform.css">
-  <link rel="stylesheet" href="../css/accueil.css">
+  <link rel="stylesheet" href="../css/accueil1.css">
 </head>
 
 
@@ -46,95 +46,117 @@
 
 
 
-  <div class="container">
-    <div class="row">
+  <form action="../html/accueil.php" method="get">
 
-      <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">
-            <font style="vertical-align: inherit;">
-              <font style="vertical-align: inherit;">DepiStage le site qui aide les étudiants</font>
-            </font>
-          </h1>
-          <p class="col-md-8 fs-4">
-            <font style="vertical-align: inherit;">
-              <font style="vertical-align: inherit;">Avec un catalogue toujours plus remplit, trouvez le stage qui vous conviendra le plus ! </font>
-              <font style="vertical-align: inherit;">Consultez les différentes annonces régulièrement afin de trouver celles qui sauront vous ravir.</font>
-            </font>
-          </p>
+    <div class="container">
+      <div class="row">
+
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">DepiStage le site qui aide les étudiants</font>
+              </font>
+            </h1>
+            <p class="col-md-8 fs-4">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Avec un catalogue toujours plus remplit, trouvez le stage qui vous conviendra le plus ! </font>
+                <font style="vertical-align: inherit;">Consultez les différentes annonces régulièrement afin de trouver celles qui sauront vous ravir.</font>
+              </font>
+            </p>
+          </div>
         </div>
-      </div>
 
 
-      <div class="container containerFiltre">
-        <div class="row">
-          <div class="col-sm-3">
-            <h6>Choix de votre année d'étude :</h6>
-            <select class="form-select LastInput" name="pets" id="pet-select">
-              <option value="">Années d'études</option>
-              <option value="BAC +1">BAC +1</option>
-              <option value="BAC +2">BAC +2</option>
-              <option value="BAC +3">BAC +3</option>
-              <option value="BAC +4">BAC +4</option>
-              <option value="BAC +5">BAC +5</option>
+        <div class="container containerFiltre">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6>Choix de votre année d'étude :</h6>
+              <select class="form-select LastInput" name="Annee" id="years-select">
+                <option value="">Années d'études</option>
+                <option value="BAC +1">BAC +1</option>
+                <option value="BAC +2">BAC +2</option>
+                <option value="BAC +3">BAC +3</option>
+                <option value="BAC +4">BAC +4</option>
+                <option value="BAC +5">BAC +5</option>
 
-            </select>
+              </select>
 
-          </div>
-
-
-
-
-
-
-          <div class="col-sm-3">
-            <h6>Date de début du stage :</h6>
-            <input class="form-select LastInput" type="date">
-          </div>
-
-
-          <div class="col-sm-3">
-            <h6>Localisation du stage :</h6>
-            <select class="form-select LastInput" id="inputlocalisation" name="localisation">
-              <option selected id="inputlocalisation">Lieux</option>
-
-              <?php
-              require('../php/createPDO.php');
-              require('../php/querylocalisation.php');
-              ?>
-            </select>
-
-          </div>
+            </div>
 
 
 
 
 
-          <div class="col-sm-3">
-            <h6>Note minimum :</h6>
-            <div class="rate">
-              <input type="radio" id="star5" name="rate" value="5" />
-              <label for="star5" title="text">5 stars</label>
-              <input type="radio" id="star4" name="rate" value="4" />
-              <label for="star4" title="text">4 stars</label>
-              <input type="radio" id="star3" name="rate" value="3" />
-              <label for="star3" title="text">3 stars</label>
-              <input type="radio" id="star2" name="rate" value="2" />
-              <label for="star2" title="text">2 stars</label>
-              <input type="radio" id="star1" name="rate" value="1" />
-              <label for="star1" title="text">1 star</label>
+
+            <div class="col-sm-3">
+              <h6>Date de début du stage :</h6>
+              <input class="form-control" type="date" name="date">
+            </div>
+
+
+            <div class="col-sm-3">
+              <h6>Localisation du stage :</h6>
+              <select class="form-select LastInput" id="inputlocalisation" name="localisation">
+                <option selected id="inputlocalisation" value="">Lieux</option>
+
+                <?php
+                require('../php/createPDO.php');
+                require('../php/querylocalisation.php');
+                ?>
+              </select>
+
+            </div>
+
+
+
+
+
+            <div class="col-sm-3">
+              <h6>Note minimum :</h6>
+              <div class="rate">
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 star</label>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
 
 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 positionResearch">
+          <input type="hidden" name="FilterApply">
+          <button type="submit" class="btn btn-primary btn-lg buttonAnnounce">
+            <font style="vertical-align: inherit;">appliquer les filtres</font>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+
+
+
+
+<div>
   <?php
   require('../php/queryannounce.php');
   ?>
+</div>
+
 
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
@@ -173,15 +195,5 @@
   <script src="../js/accueil.js"></script>
 
 </body>
-
-
-
-
-
-
-
-
-
-
 
 </html>

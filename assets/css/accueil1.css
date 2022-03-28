@@ -87,3 +87,11 @@
 .lamarge {
     margin-bottom: 20px;
 }
+
+
+.positionResearch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
