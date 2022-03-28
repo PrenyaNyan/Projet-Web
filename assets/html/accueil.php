@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../css/globalform.css">
-  <link rel="stylesheet" href="../css/accueil1.css">
+  <link rel="stylesheet" href="../css/accueil2.css">
+  <link rel="stylesheet" href="../css/test1.css">
+  <link rel="stylesheet" href="../css/header.css">
 </head>
 
 
@@ -19,34 +21,11 @@
 <body>
   <?php
   unset($_SESSION['newsession']);
+  require('../php/createPDO.php');
+  require('../php/CreateHeader.php');
   ?>
 
-  <header class="p-3 bg-dark text-white">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <img src="https://cdn.discordapp.com/attachments/950033739604434965/950403057567551528/logo.png" class="bi me-2" style="width: 100px;">
-        </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-        </ul>
-
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form>
-
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
-        </div>
-      </div>
-    </div>
-  </header>
-
+  
 
 
   <form action="../html/accueil.php" method="get">
@@ -54,7 +33,7 @@
     <div class="container">
       <div class="row">
 
-        <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="mb-4 bg-light announceBackground  PositionTextStart">
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">
               <font style="vertical-align: inherit;">
@@ -104,7 +83,6 @@
                 <option selected id="inputlocalisation" value="">Lieux</option>
 
                 <?php
-                require('../php/createPDO.php');
                 require('../php/querylocalisation.php');
                 ?>
               </select>
@@ -154,7 +132,7 @@
 
 
 
-<div>
+<div id="entredeux">
   <?php
   require('../php/queryannounce.php');
   ?>
@@ -191,12 +169,13 @@
 
 
 
+ 
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../js/scriptIndex.js"></script>
   <script src="../js/accueil.js"></script>
-
+ <script src="../js/test.js"></script>
 </body>
 
 </html>

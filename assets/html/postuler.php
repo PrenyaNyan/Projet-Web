@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../css/globalform.css">
-    <link rel="stylesheet" href="../css/oui.css">
+    <link rel="stylesheet" href="../css/postuler.css">
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 
 
@@ -17,7 +18,7 @@
 
 
 
-<body class="bg-light">
+<body class="BodyColor">
     <?php
     require('../php/createPDO.php');
     require('../php/CreateHeader.php');
@@ -25,7 +26,7 @@
 
     <div class="m-4">
         <form>
-            <input type="button" value="Retour" onclick="history.back()" class="btn btn-dark text-light me-2 m-2">
+            <input type="button" value="Retour" onclick="history.back()" class="btn btn-primary btn-lg me-2 m-2">
         </form>
 
     </div>
@@ -48,7 +49,7 @@
 
 
         <form method="get" action="assets\php\applycreate.php" class="col-md-6">
-            <div class="h-100 p-5 bg-dark text-white border rounded-3">
+            <div class="h-100 p-5 formePost">
                 <h2 class="d-inline-block mb-2">CV</h2>
                 <div class="row align-items-md-stretch">
                     <libellé>Sélectionner le CV à envoyer</libellé>
@@ -61,7 +62,7 @@
                 <textarea name="textareaA" placeholder="Texte de motivation (5000 caractères MAX)" id="" maxlength="5000" cols="80" rows="15" class="form-control"></textarea>
                 <div id="textareaAError" class="counter"><span>0</span> caractères (5000 max)</div>
                 <div class="d-flex justify-content-end">
-                    <input type="submit" name="submitInfo" value="Postuler" />
+                    <input type="submit" name="submitInfo" value="Postuler" class="btn btn-primary btn-lg" />
                 </div>
             </div>
         </form>

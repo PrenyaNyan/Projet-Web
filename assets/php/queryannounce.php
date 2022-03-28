@@ -3,8 +3,8 @@
 
 
 if (isset($_GET['FilterApply'])) {
-      
-     
+
+
     //$Annee = $_GET['Annee'];
     $date = $_GET['date'];
     $localisation = $_GET['localisation'];
@@ -19,27 +19,27 @@ if (isset($_GET['FilterApply'])) {
         if ($date != '' or $localisation != '') {
             $WHERE = "WHERE";
 
-            if ($date != '' and $localisation != ''){
+            if ($date != '' and $localisation != '') {
                 $et = "AND";
             } else {
-                $et='';
+                $et = '';
             }
         } else {
             $WHERE = '';
             $et = '';
         }
 
-       $FILTER_DATE = ($date=='') ? '' : "offer.STARTDATE >= '$date'";
-       $FILTER_LOCATION = ($localisation=='') ? '' : "location.ID_Location = $localisation";
-  
-       
+        $FILTER_DATE = ($date == '') ? '' : "offer.STARTDATE >= '$date'";
+        $FILTER_LOCATION = ($localisation == '') ? '' : "location.ID_Location = $localisation";
 
 
-       
-       $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
+
+
+
+        $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
                                 FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
-                                '.$WHERE.' ' .$FILTER_DATE. ' '.$et.' ' .$FILTER_LOCATION. '   ;');
+                                ' . $WHERE . ' ' . $FILTER_DATE . ' ' . $et . ' ' . $FILTER_LOCATION . '   ;');
 
 
         $stmt->execute();
@@ -86,9 +86,9 @@ if (isset($_GET['FilterApply'])) {
     
           </div>
           <div class="col-sm-offset-0 col-sm-1">
-            <button id="likebutton" class="marginHeart">
-              <i class="far fa-heart fa-2x" id="heartimg"></i>
-            </button>
+          <button class="leboutonpourlike" id="likebutton'.$row['IDOFFER'].'" value="'.$row['IDOFFER'].'">
+          <i class="far fa-heart" id="heartimg'.$row['IDOFFER'].'"></i>
+        </button>
           </div>
         </div>
       </div>';
@@ -106,10 +106,10 @@ if (isset($_GET['FilterApply'])) {
                                 ;');
 
 
-        $stmt->execute();
-        $res = $stmt->fetchAll();
-        $stmt->closeCursor();
-        $buffer = "";
+    $stmt->execute();
+    $res = $stmt->fetchAll();
+    $stmt->closeCursor();
+    $buffer = "";
 
 
 
@@ -117,8 +117,8 @@ if (isset($_GET['FilterApply'])) {
 
 
 
-        foreach ($res as $row) {
-            $buffer .= '
+    foreach ($res as $row) {
+        $buffer .= '
         <div class="container announceBackground lamarge">
         <div class="row">
     
@@ -150,14 +150,12 @@ if (isset($_GET['FilterApply'])) {
     
           </div>
           <div class="col-sm-offset-0 col-sm-1">
-            <button id="likebutton" class="marginHeart">
-              <i class="far fa-heart fa-2x" id="heartimg"></i>
+            <button class="leboutonpourlike" id="likebutton'.$row['IDOFFER'].'" value="'.$row['IDOFFER'].'">
+              <i class="far fa-heart fa-2x" id="heartimg'.$row['IDOFFER'].'"></i>
             </button>
           </div>
         </div>
       </div>';
-        }
-        echo $buffer;
     }
-
-
+    echo $buffer;
+}
