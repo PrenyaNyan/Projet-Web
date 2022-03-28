@@ -18,11 +18,12 @@ if (isset($_GET['FilterApply'])) {
 
 
     try {
-        $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
+       $FILTER_DATE = ($date=='') ? '' : "offer.STARTDATE >= $date";
+       
+       $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
                                 FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
-                                WHERE  location.ID_Location LIKE \'%' .$localisation. '%\'
-                                AND offer.STARTDATE LIKE \'%' .$date. '%\';');
+                                WHERE  location.ID_Location LIKE \'%' .$localisation. '%\' AND '.$FILTER_DATE.' ');
 
         $stmt->execute();
         $res = $stmt->fetchAll();
