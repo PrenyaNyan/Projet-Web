@@ -17,44 +17,6 @@
 
 
 
-<?php
-function connect()
-{
-
-    $db = "bddprojet";
-    $dbhost = "localhost";
-    $dbport = 3306;
-    $dbuser = "root";
-    $dbpasswd = "";
-
-    try {
-        $pdo = new PDO('mysql:host=' . $dbhost . ';port=' . $dbport . ';dbname=' . $db . '', $dbuser, $dbpasswd);
-        return $pdo;
-    } catch (PDOException $e) {
-        echo ('Erreur : ' . $e->getMessage());
-    }
-} // end connect 
-
-
-
-
-function post($file_name, $textareaA)
-{
-    $pdo = connect();
-    $stmt = $pdo->prepare("INSERT INTO `applyfor` (`cv`, `coverletter`) VALUES ('$file_name', '$textareaA');");
-
-    $stmt->execute();
-}
-?>
-
-
-
-
-
-
-
-
-
 <body class="bg-light">
 
 
@@ -64,45 +26,57 @@ function post($file_name, $textareaA)
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <img src="https://cdn.discordapp.com/attachments/950033739604434965/950403057567551528/logo.png" class="bi me-2" style="width: 100px;">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="http://localhost/assets/html/accueil.php" class="nav-link px-2 text-black">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-black">Features</a></li>
-                    <li><a href="#" class="nav-link px-2 text-black">Pricing</a></li>
-                    <li><a href="#" class="nav-link px-2 text-black">FAQs</a></li>
-                    <li><a href="#" class="nav-link px-2 text-black">About</a></li>
+                    <li><a href="http://localhost/assets/html/accueil.php" class="nav-link px-2 text-black">Accueil</a></li>
+                    <li><a href="http://localhost/assets/html/dashboard.php" class="nav-link px-2 text-black">DashBoard</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                </form>
 
-                <div class="text-end">
-                    <form action="http://localhost/assets/html/login.php" class="btn btn-outline-secondary">
-                        <button type="submit" class="btn">Login</button>
-                    </form>
-                    <form action="http://localhost/assets/html/signup.php" class="btn btn-secondary">
-                        <button type="submit" class="btn text-light">Sign-up</button>
-                    </form>
+
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/assets/vendors/Frogs/Frog3_right.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="http://localhost/assets/html/annonce.html">Créer une annonce</a></li>
+                        <li>
+                        <li><a class="dropdown-item" href="http://localhost/assets/html/moderation.php">Modération</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
                 </div>
+
+
+                <!--<div class="text-end">
+                    <form action="http://localhost/assets/html/signup.php" class="btn-secondary ">
+                        <button type="submit" class="btn text-light">Déconexion</button>
+                    </form>
+                </div>-->
+
+
+
+
             </div>
         </div>
     </header>
 
-
-
     <div class="m-4">
 
 
-        <div>
-            <form action="http://localhost/assets/html/accueil.php">
-                <button type="submit" class="btn btn-dark text-light me-2 m-2">Retour</button>
+            <form>
+                <input type="button" value="Retour" onclick="history.back()" class="btn btn-dark text-light me-2 m-2">
             </form>
+
         </div>
 
         <div class="row align-items-md-stretch m-3">
             <div class="col-md-6">
                 <?php
+                //unset($_SESSION["newsession"]);
                 require('../php/createPDO.php');
                 require('../php/queryinfocompany.php');
+                require('../php/applycreate.php');
                 ?>
             </div>
 
@@ -115,7 +89,7 @@ function post($file_name, $textareaA)
 
 
 
-            <form method="get" action="postuler.php" class="col-md-6">
+            <form method="get" action="assets\php\applycreate.php" class="col-md-6">
                 <div class="h-100 p-5 bg-dark text-white border rounded-3">
                     <h2 class="d-inline-block mb-2">CV</h2>
                     <div class="row align-items-md-stretch">
@@ -133,14 +107,6 @@ function post($file_name, $textareaA)
                     </div>
                 </div>
             </form>
-
-            <?php
-            if (isset($_GET["file_name"], $_GET["textareaA"])) {
-                echo ($_GET["file_name"]);
-                echo ($_GET["textareaA"]);
-                post($_GET["file_name"], $_GET["textareaA"]);
-            }
-            ?>
 
 
 
