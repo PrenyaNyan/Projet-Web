@@ -9,8 +9,6 @@ try {
     $res = $stmt->fetchAll();
     $stmt->closeCursor();
 
-
-    print_r($res);
     
 } catch (\Throwable $th) {
     echo '<div class="alert alert-danger" role="alert">
