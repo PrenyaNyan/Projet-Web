@@ -4,7 +4,7 @@ if (empty($_POST["id"])) {
     exit();
 }
 try {
-    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
+    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.ID_offer,offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
                             FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location inner JOIN save ON offer.ID_Offer = save.ID_Offer 
                             inner JOIN users ON save.ID_User = users.ID_User 
                             inner JOIN company on offer.ID_Company = company.ID_Company 
@@ -34,6 +34,7 @@ try {
                 <input type="radio" id="star1" name="rate" value="1" />
                 <label for="star1" title="text">1 star</label>
             </div>
+            <input type="hidden" name="ID_OffrePostuler" value="'.$row['ID_offer'].'">
         </div>
         <div class="card-text mb-auto text-center p-2">
             <span>' . $row['OFFERNAME'] . '</span> /
