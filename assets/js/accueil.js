@@ -21,6 +21,9 @@ $(document).ready(function () {
 
       if ($("#likedashboard").val() == "dashboard") {
         window.location.reload();
+        window.location.reload();
+        window.location.reload();
+        window.location.reload();
 
       } else {
         $("#heartimg" + $(this).val()).removeClass("liked");
