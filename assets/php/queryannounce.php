@@ -87,7 +87,7 @@ if (isset($_GET['FilterApply'])) {
           </div>
           <div class="col-sm-offset-0 col-sm-1">
           <button class="leboutonpourlike" id="likebutton'.$row['IDOFFER'].'" value="'.$row['IDOFFER'].'">
-          <i class="far fa-heart" id="heartimg'.$row['IDOFFER'].'"></i>
+          <i class="far fa-heart fa-2x" id="heartimg'.$row['IDOFFER'].'"></i>
         </button>
           </div>
         </div>
