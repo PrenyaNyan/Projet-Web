@@ -38,7 +38,7 @@ if ($row['ID_Session'] =! 3){
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a id="headerdisconnect" class="dropdown-item" href="#">Sign out</a></li>
                     </ul>
                 </div>
 

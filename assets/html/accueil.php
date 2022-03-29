@@ -178,6 +178,7 @@ require('../php/isnotconnected.php');
   <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../js/scriptIndex.js"></script>
   <script src="../js/accueil.js"></script>
+  <script src="../js/disconnect.js"></script>
 </body>
 
 </html>
