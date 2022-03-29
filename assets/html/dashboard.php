@@ -13,6 +13,7 @@ require('../php/isnotconnected.php');
     <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/accueil2.css">
     <link rel="stylesheet" href="../css/header.css">
 </head>
 
@@ -29,9 +30,12 @@ require('../php/isnotconnected.php');
     </nav>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show container active" id="nav-saved" role="tabpanel" aria-labelledby="nav-saved-tab">
-            <?php
-            require('../php/querysaved.php');
-            ?>
+            <div id="entredeux">
+                <?php
+                require('../php/querysaved.php');
+                ?>
+            </div>
+
         </div>
         <div class="tab-pane fade show container" id="nav-messaged" role="tabpanel" aria-labelledby="nav-messaged-tab">
             <?php
@@ -43,7 +47,7 @@ require('../php/isnotconnected.php');
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/likebutton.js"></script>
+    <script src="../js/accueil.js"></script>
 </body>
 
 </html>

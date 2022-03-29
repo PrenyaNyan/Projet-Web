@@ -1,6 +1,6 @@
 <?php
 try {
-    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
+    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC,offer.ID_Offer ,offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
                             FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location 
                             inner JOIN save ON offer.ID_Offer = save.ID_Offer 
                             inner JOIN users ON save.ID_User = users.ID_User 
@@ -14,48 +14,46 @@ try {
 
     foreach ($res as $row) {
         $buffer .= '
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">'. $row['COMPANYNAME'] .'</font>
-                        </font>
-                    </strong>
-                    <h3 class="mb-0">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">'. $row['OFFERNAME'] .'</font>
-                        </font>
-                    </h3>
-                    <div class="mb-1 text-muted">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">'. $row['REALEASEDATE'] .'</font>
-                        </font>
-                    </div>
-                    <p class="card-text mb-auto">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Description de l\'entreprise :<br>'. $row['COMPANYDESC'] .'<br><br>Description de l\'offre :<br>'. $row['OFFERDESC'] .'<br><br>'.$row['STARTDATE'].' | '.$row['ENDDATE'].'<br><br>Contact :<br>'.$row['EMAIL'].'</font>
-                        </font>
-                    </p>
-                    <a href="#" class="stretched-link">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;"><br>Consulter l\'annonce</font>
-                        </font>
-                    </a>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Espace réservé&nbsp;: Vignette" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                    </svg><img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" alt="" width="375">
-
-                </div>
-                <button class="btn btn-like" id="boutonLike">
-                    <span class="fa fa-heart"></span>
-                </button>
-            </div>';
-        
+        <div class="container announceBackground lamarge">
+        <div class="row">
+    
+          <div class="col-sm-8">
+            <strong class="d-inline-block mb-2 text-primary">
+              <font style="vertical-align: inherit;">' . $row['COMPANYNAME'] . '</font>
+            </strong>
+            <h3 class="mb-0">
+              <font style="vertical-align: inherit;">' . $row['OFFERNAME'] . '</font>
+            </h3>
+            <div class="mb-1 text-muted">
+              <font style="vertical-align: inherit;">' . $row['STARTDATE'] . '/' . $row['ENDDATE'] . '</font>
+            </div>
+            <p class="card-text mb-auto">
+              <font style="vertical-align: inherit;">' . $row['OFFERDESC'] . '</font>
+            </p>
+            <form action="../html/postuler.php" method="post" class="buttonPosition">
+              <input type="hidden" name="id" value="' . $row['ID_Offer'] . '">
+              <button type="submit" class="btn btn-primary btn-lg buttonAnnounce">
+                <font style="vertical-align: inherit;">voir plus</font>
+              </button>
+            </form>
+          </div>
+    
+          <div class="col-sm-3">
+            <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" alt="" width="100%" style="border-radius: 8px;" />
+            </svg>
+    
+    
+          </div>
+          <div class="col-sm-offset-0 col-sm-1">
+            <button class="leboutonpourlike" id="likebutton' . $row['ID_Offer'] . '" value="' . $row['ID_Offer'] . '">
+              <i class="fas fa-heart fa-2x liked" value="dashboard" id="heartimg' . $row['ID_Offer'] . '"></i>
+              <input type="hidden" id="likedashboard" value="dashboard">
+            </button>
+          </div>
+        </div>
+      </div>';
     }
     echo $buffer;
-
 } catch (\Throwable $th) {
     echo '<option value="erreur">Erreur de connexion a la base de données</option>';
     echo $th;

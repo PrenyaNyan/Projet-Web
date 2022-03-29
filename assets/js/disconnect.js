@@ -1,6 +1,5 @@
 $(document).ready(function () {
   $("body").on("click", "#headerdisconnect", function () {
-    alert('disconnect');
     let request =
       $.ajax({
         type: "GET",
