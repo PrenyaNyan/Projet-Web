@@ -33,9 +33,11 @@ require('../php/isnotconnected.php');
 </head>
 
 <body>
-    <?php
-    require('../php/CreateHeader.php');
-    ?>
+    <header class="p-3 headerColor text-black">
+        <?php
+        require('../php/CreateHeader.php');
+        ?>
+    </header>
 
     <nav class="container" style="margin-top: 15px;">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
