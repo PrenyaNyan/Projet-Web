@@ -213,8 +213,8 @@ require('../php/isnotconnected.php');
                                             </div>
                                             <div class="col">
                                                 <div class="form-floating">
-                                                    <input type="number" class="form-control" id="floatingPlaceavailable" placeholder="PlacefloatingPlaceavailable" name="createplacefloatingPlaceavailable" value="">
-                                                    <label for="floatingPlaceavailable">Place available</label>
+                                                    <input type="number" class="form-control" id="floatingPlaceavailable" placeholder="PlacefloatingPlaceavailable" name="placeavailable" value="">
+                                                    <label for="floatingPlaceavailable">Place</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -239,14 +239,35 @@ require('../php/isnotconnected.php');
                                             <label for="floatingOfferdescription">Description</label>
                                         </div>
 
+                                        <div class="row mb-4">
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <select id="selectcompanycreateoffer" class="form-select" name="createcompanyoffer" aria-label="Default select example">
+                                                        <option value="" selected>Choose a company</option>
+                                                        <?php
+                                                        require('../php/moderationtaboffercreate.php');
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input type="number" class="form-control" id="floatingSalary" placeholder="PlacefloatingSalary" name="salary" value="">
+                                                    <label for="floatingSalary">Salary</label>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <div class="form-floating col-sm-3">
-                                            <select class="form-select" name="createcompanyoffer" aria-label="Default select example">
-                                                <option value="3" selected="">Company 1</option>
-                                                <option value="4">Company 1</option>
-                                                <option value="2">Company 1</option>
-                                                <option value="1">Company 1</option>
-                                            </select>
+
+                                        <div class="col">
+                                            <div class="form-floating">
+                                                <select id="selectcompanycreateoffer" class="form-select" name="localisation" aria-label="Default select example">
+                                                    <option value="" selected>Choose a localisation</option>
+                                                    <?php
+                                                    require('../php/querylocalisation.php');
+                                                    ?>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -255,22 +276,17 @@ require('../php/isnotconnected.php');
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Create</button>
                                 </div>
-                                <input type="hidden" name="tabmoderation" value="company">
+                                <input type="hidden" name="tabmoderation" value="offer">
 
                             </div>
                         </form>
                     </div>
                 </div>
+                <?php
+                require('../php/moderationtabofferupdate.php');
+                ?>
             </div>
-            <?php
-
-            //require('../php/moderationtabcompanycreate.php');
-            //require('../php/moderationtabcompanyupdate.php');
-
-            ?>
         </div>
-
-    </div>
     </div>
 
 
