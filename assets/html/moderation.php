@@ -298,6 +298,7 @@ require('../php/isnotconnected.php');
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/moderation.js"></script>
+    <script src="../js/disconnect.js"></script>
 </body>
 
 </html>
