@@ -11,8 +11,8 @@ try {
             $stmt->closeCursor();
             $idduuser = $res['ID_Session'];
 
-            $stmt = $pdo->prepare(" INSERT INTO ApplyFor (ID_User, ID_OFFER, CV, CoverLetter)
-                            VALUES (?,?,?,?);");
+            $stmt = $pdo->prepare(" INSERT INTO ApplyFor (ID_User, ID_OFFER, CV, CoverLetter, Step)
+                            VALUES (?,?,?,?,1);");
             $stmt->bindParam(1, $idduuser);
             $stmt->bindParam(2, $_POST["ID_OffrePostuler"]);
             $stmt->bindParam(3, $_POST["file_name"]);

@@ -9,30 +9,30 @@ try {
     $stmt->closeCursor();
     $currentsession = $res['ID_Session'];
 
-if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["iduser"]) && isset($_POST["sessionuser"]) && isset($_POST["send"])) {
-    try {
-        if ($_POST['send'] == 'delete') {
-            $stmt = $pdo->prepare(" DELETE FROM `users` WHERE ID_User = ?;");
-            $stmt->bindParam(1, $_POST["iduser"]);
-        } else {
-            $stmt = $pdo->prepare(" UPDATE `users` SET `FIRSTNAME`=?, `LASTNAME`=?, `USERNAME`=?, `PASSWORD`=?, `ID_Session`=? WHERE users.ID_User = ?;");
+    if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["iduser"]) && isset($_POST["sessionuser"]) && isset($_POST["send"])) {
+        try {
+            if ($_POST['send'] == 'delete') {
+                $stmt = $pdo->prepare(" DELETE FROM `users` WHERE ID_User = ?;");
+                $stmt->bindParam(1, $_POST["iduser"]);
+            } else {
+                $stmt = $pdo->prepare(" UPDATE `users` SET `FIRSTNAME`=?, `LASTNAME`=?, `USERNAME`=?, `PASSWORD`=?, `ID_Session`=? WHERE users.ID_User = ?;");
 
-            $stmt->bindParam(1, $_POST["firstname"]);
-            $stmt->bindParam(2, $_POST["lastname"]);
-            $stmt->bindParam(3, $_POST["username"]);
-            $stmt->bindParam(4, $_POST["password"]);
-            $stmt->bindParam(5, $_POST["sessionuser"]);
-            $stmt->bindParam(6, $_POST["iduser"]);
+                $stmt->bindParam(1, $_POST["firstname"]);
+                $stmt->bindParam(2, $_POST["lastname"]);
+                $stmt->bindParam(3, $_POST["username"]);
+                $stmt->bindParam(4, $_POST["password"]);
+                $stmt->bindParam(5, $_POST["sessionuser"]);
+                $stmt->bindParam(6, $_POST["iduser"]);
+            }
+
+
+            $stmt->execute();
+            $res = $stmt->fetch();
+            $stmt->closeCursor();
+        } catch (\Throwable $th) {
+            echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Erreur de connexion a la base de données</div>';
         }
-
-
-        $stmt->execute();
-        $res = $stmt->fetch();
-        $stmt->closeCursor();
-    } catch (\Throwable $th) {
-        echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Erreur de connexion a la base de données</div>';
     }
-}
 
 
 
@@ -43,8 +43,14 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["use
             $querybuffer .= 'OR users.ID_Session = 2 ';
         }
         if ($currentsession == 1) {
-            $querybuffer .= 'OR users.ID_Session = 1';
+            $querybuffer .= 'OR users.ID_Session = 1 ';
         }
+        if (isset($_POST['page'])) {
+            $page = $_POST['page'];
+        }else{
+            $page = 1;
+        }
+        $querybuffer .= 'ORDER BY users.USERNAME ASC LIMIT 10 OFFSET ' . $page;
     }
 
     $stmt = $pdo->prepare($querybuffer);
@@ -152,4 +158,5 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["use
     echo $buffer;
 } catch (\Throwable $th) {
     echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Vous n\'avez pas l\'autorisation suffisante pour cette action !</div>';
+    echo $th;
 }
