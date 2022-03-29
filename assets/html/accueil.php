@@ -1,3 +1,8 @@
+<?php
+require('../php/createPDO.php');
+require('../php/isnotconnected.php');
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -20,8 +25,6 @@
 
 <body>
   <?php
-  unset($_SESSION['newsession']);
-  require('../php/createPDO.php');
   require('../php/CreateHeader.php');
   ?>
 
@@ -175,7 +178,6 @@
   <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../js/scriptIndex.js"></script>
   <script src="../js/accueil.js"></script>
- <script src="../js/test.js"></script>
 </body>
 
 </html>

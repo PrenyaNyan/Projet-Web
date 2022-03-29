@@ -1,6 +1,5 @@
 <?php
 try {
-    session_start();
     $stmt = $pdo->prepare(" SELECT ID_Session
                             FROM users 
                             WHERE users.USERNAME = ?;");
@@ -34,7 +33,7 @@ if ($row['ID_Session'] =! 3){
                   </svg>
                     </a>
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="http://localhost/assets/html/moderation.html">Espace Modérateur</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/assets/html/moderation.php">Espace Modérateur</a></li>
                         '. $modo .'
                         <li>
                             <hr class="dropdown-divider">

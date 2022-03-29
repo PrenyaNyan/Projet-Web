@@ -1,3 +1,7 @@
+<?php
+require('../php/createPDO.php');
+require('../php/isnotconnected.php');
+?>
 <!doctype html>
 <html lang="fr">
 
@@ -53,8 +57,8 @@
                 <h2 class="d-inline-block mb-2">CV</h2>
                 <div class="row align-items-md-stretch">
                     <libellé>Sélectionner le CV à envoyer</libellé>
-                    <div>
-                        <input name="file_name" type="file" accept=".pdf">
+                    <div class="form-label" for="customFile">
+                        <input name="file_name" type="file" accept=".pdf" class="form-control">
                         </input>
                     </div>
                 </div>
@@ -114,6 +118,7 @@
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/scriptIndex.js"></script>
     <script src="..\js\scriptcompt.js"></script>
+    <script src="../js/disconnect.js"></script>
 
 </body>
 

@@ -26,36 +26,16 @@ require('../php/isnotconnected.php');
     <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../css/moderation.css">
+    <link rel="stylesheet" href="../css/header.css">
 
 
 
 </head>
 
 <body>
-    <header class="p-3 bg-dark text-white">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <img src="https://cdn.discordapp.com/attachments/950033739604434965/950403057567551528/logo.png" class="bi me-2" style="width: 100px;">
-                </a>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                </form>
-
-                <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php
+    require('../php/CreateHeader.php');
+    ?>
 
     <nav class="container" style="margin-top: 15px;">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -293,8 +273,6 @@ require('../php/isnotconnected.php');
     </div>
     </div>
 
-
-    <?php require('../php/disconnect.php') ?>
 
     <!-- <script src="/sw.js"></script> -->
 
