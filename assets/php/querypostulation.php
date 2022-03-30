@@ -11,18 +11,44 @@ try {
     $res = $stmt->fetchAll();
     $stmt->closeCursor();
     $buffer = "";
-    print_r($res);
 
     foreach ($res as $row) {
         switch ($row['Step']) {
             case 1:
                 $Stepbuffer = ' <div class="alert alert-primary" role="alert">
-                                    Cette fonctionnalité doit permettre au système d\'avertir le Pilote qu\'une réponse à une offre a été formulée par un Etudiant. La modalité est à discuter avec l\'équipe projet et le client.
+                                    Votre postulation a bien été transmise à la société ' . $row['COMPANYNAME'] . ', une réponse vous sera renvoyée dans les plus brefs délais !
                                 </div>';
                 break;
-            
+            case 2:
+                $Stepbuffer = ' <div class="alert alert-primary" role="alert">
+                                    La société  ' . $row['COMPANYNAME'] . 'vous a répondu par mail !
+                                </div>';
+                break;
+            case 3:
+                $Stepbuffer = ' <div class="alert alert-primary" role="alert">
+                                    Votre fiche de validation de stage a été remplie par la société ' . $row['COMPANYNAME'] . ' !
+                                </div>';
+                break;
+            case 4:
+                $Stepbuffer = ' <div class="alert alert-primary" role="alert">
+                                    Votre fiche de validation a été signée par le pilote !
+                                </div>';
+                break;
+            case 5:
+                $Stepbuffer = ' <div class="alert alert-primary" role="alert">
+                                    Vos conventions de stage ont été transmises à l\'entreprise ' . $row['COMPANYNAME'] . ' !
+                                </div>';
+                break;
+            case 6:
+                $Stepbuffer = ' <div class="alert alert-success" role="alert">
+                                    Vos conventions de stage ont été retournées signées par l\'entreprise ' . $row['COMPANYNAME'] . ' !
+                                </div>';
+                break;
+
             default:
-                # code...
+                $Stepbuffer = ' <div class="alert alert-danger" role="alert">
+                                    Une erreur est survenue lors de votre postulation !
+                                </div>';
                 break;
         }
 
@@ -31,24 +57,28 @@ try {
                 <div class="col p-4 d-flex flex-column position-static">
                     <strong class="d-inline-block mb-2 text-primary">
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">'. $row['COMPANYNAME'] .'</font>
+                            <font style="vertical-align: inherit;">' . $row['COMPANYNAME'] . '</font>
                         </font>
                     </strong>
                     <h3 class="mb-0">
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">'. $row['OFFERNAME'] .'</font>
+                            <font style="vertical-align: inherit;">' . $row['OFFERNAME'] . '</font>
                         </font>
                     </h3>
                     <div class="mb-1 text-muted">
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">'. $row['REALEASEDATE'] .'</font>
+                            <font style="vertical-align: inherit;">' . $row['REALEASEDATE'] . '</font>
                         </font>
                     </div>
                     <p class="card-text mb-auto">
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Description de l\'entreprise :<br>'. $row['COMPANYDESC'] .'<br><br>Description de l\'offre :<br>'. $row['OFFERDESC'] .'<br><br>'.$row['STARTDATE'].' | '.$row['ENDDATE'].'<br><br>Contact :<br>'.$row['EMAIL'].'</font>
+                            <font style="vertical-align: inherit;">Description de l\'entreprise :<br>' . $row['COMPANYDESC'] . '<br><br>Description de l\'offre :<br>' . $row['OFFERDESC'] . '<br><br>' . $row['STARTDATE'] . ' | ' . $row['ENDDATE'] . '<br><br>Contact :<br>' . $row['EMAIL'] . '</font>
                         </font>
                     </p>
+
+                    <div class="mt-4">
+                    ' . $Stepbuffer . '
+                    </div>
                     <a href="#" class="stretched-link">
                         <font style="vertical-align: inherit;">
                             <font style="vertical-align: inherit;"><br>Consulter l\'annonce</font>
@@ -62,10 +92,8 @@ try {
 
                 </div>
             </div>';
-        
     }
     echo $buffer;
-
 } catch (\Throwable $th) {
     echo '<option value="erreur">Erreur de connexion a la base de données</option>';
     echo $th;
