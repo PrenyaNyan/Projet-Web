@@ -106,7 +106,6 @@ require('../php/isnotconnected.php');
 
 
 
-
   <div id="entredeux">
     <?php
     require('../php/queryannounce.php');
