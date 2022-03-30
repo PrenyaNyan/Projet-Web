@@ -66,7 +66,7 @@ try {
     $buffer = "";
     foreach ($res as $row) {
 
-        $stmt = $pdo->prepare(" SELECT COUNT(*) as COUNTAPPLY 
+        $stmt = $pdo->prepare(" SELECT COUNT(*) as COUNTAPPLYOFFER 
                                 FROM applyfor WHERE 
                                 ID_Offer = ?;");
         $stmt->bindParam(1, $row['ID_Offer']);
@@ -77,7 +77,7 @@ try {
         $buffer .= '  <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' . $row['ID_Offer'] . '" aria-expanded="false" aria-controls="flush-collapseOne">
-                                ' . $row['OFFERNAME'] .'<p class="text-secondary" style="margin-top: 16px; margin-left: 20px;">( '. $rescountapply['COUNTAPPLY'] .' on(t) postulé à cette offre</p> 
+                                ' . $row['OFFERNAME'] .'<p class="text-secondary" style="margin-top: 16px; margin-left: 20px;">( '. $rescountapply['COUNTAPPLYOFFER'] .' personne(s) on(t) postulé à cette offre)</p> 
                             </button>
                         </h2>
                         <div id="flush-collapse' . $row['ID_Offer'] . '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample3" style="">

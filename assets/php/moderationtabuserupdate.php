@@ -47,10 +47,9 @@ try {
         }
         if (isset($_POST['page'])) {
             $page = $_POST['page'];
-        }else{
+        } else {
             $page = 1;
         }
-        $querybuffer .= 'ORDER BY users.USERNAME ASC LIMIT 10 OFFSET ' . $page;
     }
 
     $stmt = $pdo->prepare($querybuffer);
@@ -94,10 +93,22 @@ try {
                 $createuseroption .= '<option value="1">Admin</option>';
             }
         }
+
+
+
+        $stmt = $pdo->prepare(" SELECT COUNT(*) as COUNTAPPLYUSER 
+                                FROM applyfor WHERE 
+                                ID_User = ?;");
+        $stmt->bindParam(1, $row['ID_User']);
+        $stmt->execute();
+        $rescountapply = $stmt->fetch();
+        $stmt->closeCursor();
+
+
         $buffer .= '    <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' . $row['ID_User'] . '" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    ' . $row['FIRSTNAME'] . ' ' . $row['LASTNAME'] . '
+                                    ' . $row['FIRSTNAME'] . ' ' . $row['LASTNAME'] .'<p class="text-secondary" style="margin-top: 16px; margin-left: 20px;">( A postulé a '. $rescountapply['COUNTAPPLYUSER'] .' annonce(s))</p>
                                 </button>
                             </h2>
                             <div id="flush-collapse' . $row['ID_User'] . '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample1">
