@@ -10,7 +10,6 @@ require('../php/isnotconnected.php');
     <title>DepiStage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/assets/images/hello-icon-152.png">
@@ -21,7 +20,6 @@ require('../php/isnotconnected.php');
     <meta name="apple-mobile-web-app-title" content="Hello World">
     <meta name="msapplication-TileImage" content="/assets/images/hello-icon-144.png">
     <meta name="msapplication-TileColor" content="#FFFFFF"> 
-    -->
 
     <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
@@ -343,6 +341,8 @@ require('../php/isnotconnected.php');
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/disconnect.js"></script>
     <script src="../js/moderation.js"></script>
+    <script src="../../sw.js"></script>
+
 </body>
 
 </html>

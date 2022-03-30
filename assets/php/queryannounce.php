@@ -107,6 +107,8 @@ if (isset($_GET['FilterApply'])) {
     $FILTER_DATE = ($date == '') ? '' : " offer.STARTDATE >= '$date'";
     $FILTER_LOCATION = ($localisation == '') ? '' : " location.ID_Location = $localisation";
 
+echo "oui";
+
     $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
                                 FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
@@ -125,25 +127,7 @@ if (isset($_GET['FilterApply'])) {
     $buffer = "";
 
 
-    $stmt = $pdo->prepare(" SELECT save.ID_Offer AS OFFRELIKE
-    FROM users inner join save ON users.ID_User = save.ID_User
-    WHERE users.USERNAME = ?;");
-    $stmt->bindParam(1, $_SESSION["newsession"]);
-    $stmt->execute();
-    $res2 = $stmt->fetchAll();
-    $stmt->closeCursor();
-
     foreach ($res as $row) {
-
-
-      foreach($res2 as $row2){
-        $bufferliked = '';
-          if($row['IDOFFER'] == $row2['OFFRELIKE']){
-           $bufferliked = 'liked fas';
-           break;
-          }
-        }
-
 
       $buffer .= '
         <div class="container announceBackground lamarge">
@@ -178,7 +162,7 @@ if (isset($_GET['FilterApply'])) {
           </div>
           <div class="col-sm-offset-0 col-sm-1">
           <button class="leboutonpourlike" id="likebutton' . $row['IDOFFER'] . '" value="' . $row['IDOFFER'] . '">
-          <i class="far fa-heart fa-2x ' . $bufferliked . '" id="heartimg' . $row['IDOFFER'] . '"></i>
+          <i class="far fa-heart fa-2x" id="heartimg' . $row['IDOFFER'] . '"></i>
         </button>
           </div>
         </div>
@@ -204,24 +188,11 @@ if (isset($_GET['FilterApply'])) {
 
 
 
-  $stmt = $pdo->prepare(" SELECT save.ID_Offer AS OFFRELIKE
-  FROM users inner join save ON users.ID_User = save.ID_User
-  WHERE users.USERNAME = ?;");
-  $stmt->bindParam(1, $_SESSION["newsession"]);
-  $stmt->execute();
-  $res2 = $stmt->fetchAll();
-  $stmt->closeCursor();
+
+
+
 
   foreach ($res as $row) {
-
-  foreach($res2 as $row2){
-    $bufferliked = '';
-      if($row['IDOFFER'] == $row2['OFFRELIKE']){
-       $bufferliked = 'liked fas';
-       break;
-      }
-    }
-    
     $buffer .= '
         <div class="container announceBackground lamarge">
         <div class="row">
@@ -255,7 +226,7 @@ if (isset($_GET['FilterApply'])) {
           </div>
           <div class="col-sm-offset-0 col-sm-1">
             <button class="leboutonpourlike" id="likebutton' . $row['IDOFFER'] . '" value="' . $row['IDOFFER'] . '">
-              <i class="far fa-heart fa-2x ' . $bufferliked . '" id="heartimg' . $row['IDOFFER'] . '"></i>
+              <i class="far fa-heart fa-2x" id="heartimg' . $row['IDOFFER'] . '"></i>
             </button>
           </div>
         </div>
