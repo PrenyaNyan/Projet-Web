@@ -214,11 +214,11 @@ if (isset($_GET['FilterApply'])) {
   $stmt->closeCursor();
 
   foreach ($res as $row) {
-
+  
+  $bufferliked = '';
   foreach($res2 as $row2){
-    $bufferliked = '';
       if($row['IDOFFER'] == $row2['OFFRELIKE']){
-       $bufferliked = 'liked fas';
+       $bufferliked = ' liked fas';
        break;
       }
     }
@@ -259,7 +259,7 @@ if (isset($_GET['FilterApply'])) {
           </div>
           <div class="col-sm-offset-0 col-sm-1">
             <button class="leboutonpourlike" id="likebutton' . $row['IDOFFER'] . '" value="' . $row['IDOFFER'] . '">
-              <i class="far fa-heart fa-2x ' . $bufferliked . '" id="heartimg' . $row['IDOFFER'] . '"></i>
+              <i class="far fa-heart fa-2x' . $bufferliked . '" id="heartimg' . $row['IDOFFER'] . '"></i>
             </button>
           </div>
         </div>
