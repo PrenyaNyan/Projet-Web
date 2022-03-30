@@ -1,6 +1,6 @@
 <?php
 try {
-    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
+    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC , Step
                             FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location 
                             inner JOIN applyfor ON offer.ID_Offer = applyfor.ID_Offer 
                             inner JOIN users ON applyfor.ID_User = users.ID_User 
@@ -11,8 +11,21 @@ try {
     $res = $stmt->fetchAll();
     $stmt->closeCursor();
     $buffer = "";
+    print_r($res);
 
     foreach ($res as $row) {
+        switch ($row['Step']) {
+            case 1:
+                $Stepbuffer = ' <div class="alert alert-primary" role="alert">
+                                    Cette fonctionnalité doit permettre au système d\'avertir le Pilote qu\'une réponse à une offre a été formulée par un Etudiant. La modalité est à discuter avec l\'équipe projet et le client.
+                                </div>';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+
         $buffer .= '
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">

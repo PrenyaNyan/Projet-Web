@@ -43,10 +43,7 @@ require('../php/isconnected.php');
                 <div class="form-floating">
                     <select class="form-select LastInput" id="roleselect" name="roleselected">
                         <option selected>Select a role</option>
-                        <option value="1">Admin</option>
-                        <option value="2">Pilote</option>
                         <option value="3">Etudiant</option>
-                        <option value="4">Delegue</option>
                     </select>
                 </div>
                 <div class="form-floating added">

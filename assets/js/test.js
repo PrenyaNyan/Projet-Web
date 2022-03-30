@@ -1,6 +1,10 @@
 $(document).ready(function () {
   $("#entredeux").on("click", ".leboutonpourlike", function () {
     if ($("#heartimg" + $(this).val()).hasClass("liked")) {
+      $("#heartimg" + $(this).val()).removeClass("liked");
+      $("#heartimg" + $(this).val()).removeClass("fas");
+      $("#heartimg" + $(this).val()).addClass("far");
+
       let request =
         $.ajax({
           type: "GET",
@@ -18,20 +22,6 @@ $(document).ready(function () {
         //Code à jouer après done OU fail quoi qu'il arrive
         console.log("Request !");
       });
-
-      if ($("#likedashboard").val() == "dashboard") {
-        window.location.reload();
-        window.location.reload();
-        window.location.reload();
-        window.location.reload();
-
-      } else {
-        $("#heartimg" + $(this).val()).removeClass("liked");
-        $("#heartimg" + $(this).val()).removeClass("fas");
-        $("#heartimg" + $(this).val()).addClass("far");
-      }
-
-
 
     } else {
       $("#heartimg" + $(this).val()).addClass("liked");
