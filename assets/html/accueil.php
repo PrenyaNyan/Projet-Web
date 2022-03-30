@@ -94,7 +94,7 @@ require('../php/isnotconnected.php');
 
 
 
-
+            <input type="hidden" name="FilterApply">
             <button type="submit" class="btn btn-primary btn-lg buttonAnnounce">
             <font style="vertical-align: inherit;">appliquer les filtres</font>
           </button>
