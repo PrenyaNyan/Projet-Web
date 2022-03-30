@@ -79,11 +79,6 @@ try {
                     <div class="mt-4">
                     ' . $Stepbuffer . '
                     </div>
-                    <a href="#" class="stretched-link">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;"><br>Consulter l\'annonce</font>
-                        </font>
-                    </a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                     <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Espace réservé&nbsp;: Vignette" preserveAspectRatio="xMidYMid slice" focusable="false">
