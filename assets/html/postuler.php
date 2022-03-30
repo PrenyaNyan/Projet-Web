@@ -11,7 +11,6 @@ require('../php/isnotconnected.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../css/globalform.css">
     <link rel="stylesheet" href="../css/postuler.css">
     <link rel="stylesheet" href="../css/header.css">
 </head>
@@ -24,15 +23,11 @@ require('../php/isnotconnected.php');
 
 <body class="BodyColor">
     <?php
-    require('../php/createPDO.php');
     require('../php/CreateHeader.php');
     ?>
 
     <div class="m-4">
-        <form>
-            <input type="button" value="Retour" onclick="history.back()" class="btn btn-primary btn-lg me-2 m-2">
-        </form>
-
+        <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-primary btn-lg me-2 m-2">Retour</a>
     </div>
 
 
@@ -43,8 +38,8 @@ require('../php/isnotconnected.php');
         <div class="row align-items-md-stretch m-3">
             <div class="col-md-6">
                 <?php
-                require('../php/queryinfocompany.php');
                 require('../php/applycreate.php');
+                require('../php/queryinfocompany.php');
                 ?>
             </div>
 
@@ -120,7 +115,6 @@ require('../php/isnotconnected.php');
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/scriptIndex.js"></script>
     <script src="..\js\scriptcompt.js"></script>
     <script src="../js/disconnect.js"></script>
 

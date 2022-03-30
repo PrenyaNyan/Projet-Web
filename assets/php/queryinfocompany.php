@@ -5,21 +5,20 @@ if (empty($_POST["id"])) {
 }
 try {
     $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.ID_offer,offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
-                            FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location inner JOIN save ON offer.ID_Offer = save.ID_Offer 
-                            inner JOIN users ON save.ID_User = users.ID_User 
+                            FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location 
                             inner JOIN company on offer.ID_Company = company.ID_Company 
                             WHERE offer.ID_Offer = ?;");
     $stmt->bindParam(1, $_POST['id']);
     $stmt->execute();
-    $res = $stmt->fetchAll();
+    $res = $stmt->fetch();
     $stmt->closeCursor();
     $buffer = "";
 
-    foreach ($res as $row) {
-        $buffer .= '
+
+    $buffer .= '
         <div class="h-100 p-5 row rounded-3">
-        <h2 class="text-center p-1">' . $row['COMPANYNAME'] . '</h2>
-        <h6 class="text-center p-1">' . $row['COMPANYDESC'] . '</h6>
+        <h2 class="text-center p-1">' . $res['COMPANYNAME'] . '</h2>
+        <h6 class="text-center p-1">' . $res['COMPANYDESC'] . '</h6>
         <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" class="mx-auto" style="width: 500px" ;>
         <div class="d-flex justify-content-center rating rating2 m-2">
             <div class="rate">
@@ -34,19 +33,19 @@ try {
                 <input type="radio" id="star1" name="rate" value="1" />
                 <label for="star1" title="text">1 star</label>
             </div>
-            <input type="hidden" name="ID_OffrePostuler" value="'.$row['ID_offer'].'">
+            <input type="hidden" name="ID_OffrePostuler" value="' . $res['ID_offer'] . '">
         </div>
         <div class="card-text mb-auto text-center p-2">
-            <span>' . $row['OFFERNAME'] . '</span> /
-            <span>' . $row['EMAIL'] . '</span> / Place disponible : 
-            <span>' . $row['NBPLACE'] . '</span> / Date :
-            <span>' . $row['STARTDATE'] . ' | ' . $row['ENDDATE'] . '</span>
+            <span>' . $res['OFFERNAME'] . '</span> /
+            <span>' . $res['EMAIL'] . '</span> / Place disponible : 
+            <span>' . $res['NBPLACE'] . '</span> / Date :
+            <span>' . $res['STARTDATE'] . ' | ' . $res['ENDDATE'] . '</span>
         </div>
         <div>
-            <p class="text-center">' . $row['OFFERDESC'] . '</p>
+            <p class="text-center">' . $res['OFFERDESC'] . '</p>
         </div>
     </div>';
-    }
+
     echo $buffer;
 } catch (\Throwable $th) {
     echo '<div class="alert alert-danger" role="alert">
