@@ -21,7 +21,10 @@ try {
         <h6 class="text-center p-1">' . $res['COMPANYDESC'] . '</h6>
         <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" class="mx-auto" style="width: 500px" ;>
         <div class="d-flex justify-content-center rating rating2 m-2">
+        <input type="number" id="rate" name="rate" min="1" max="5">
+
             <div class="rate">
+                <input type="number" id="rate" name="rate" min="1" max="5"
                 <input type="radio" id="star5" name="rate" value="5" />
                 <label for="star5" title="text">5 stars</label>
                 <input type="radio" id="star4" name="rate" value="4" />
