@@ -193,8 +193,10 @@ if (isset($_GET['FilterApply'])) {
 } else {
 
   $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION, sector.NAME AS SECTEUR
-                                FROM sector, `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
+                                FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
+                                inner JOIN correspond ON company.ID_Company = correspond.ID_Company
+                                inner JOIN sector ON correspond.ID_Sector = sector.ID_Sector
                                 ;');
 
 
@@ -216,6 +218,7 @@ if (isset($_GET['FilterApply'])) {
   foreach ($res as $row) {
   
   $bufferliked = '';
+  
   foreach($res2 as $row2){
       if($row['IDOFFER'] == $row2['OFFRELIKE']){
        $bufferliked = ' liked fas';
