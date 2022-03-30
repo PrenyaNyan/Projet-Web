@@ -107,7 +107,6 @@ if (isset($_GET['FilterApply'])) {
     $FILTER_DATE = ($date == '') ? '' : " offer.STARTDATE >= '$date'";
     $FILTER_LOCATION = ($localisation == '') ? '' : " location.ID_Location = $localisation";
 
-    echo "aa";
     $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
                                 FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
