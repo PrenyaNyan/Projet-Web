@@ -128,11 +128,17 @@ echo "oui";
 
 
 
-
+   //La nouvelle query (fait gaffe si la reponse s'appler $res les deux)
 
 
 
     foreach ($res as $row) {
+
+      //foreach qui se balade dans la nouvel query
+        //compare IDOFFER de la premiere avec la deuxieme
+          //Si elle son egale tu ajoute 'liked' dans une variable
+            //t'ajoute la variable a la place de liked dans le buffer
+
       $buffer .= '
         <div class="container announceBackground lamarge">
         <div class="row">
