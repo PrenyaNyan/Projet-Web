@@ -21,7 +21,7 @@ try {
                 break;
             case 2:
                 $Stepbuffer = ' <div class="alert alert-primary" role="alert">
-                                    La société  ' . $row['COMPANYNAME'] . 'vous a répondu par mail !
+                                    La société  ' . $row['COMPANYNAME'] . ' vous a répondu par mail !
                                 </div>';
                 break;
             case 3:
