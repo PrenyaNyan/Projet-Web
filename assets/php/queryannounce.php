@@ -204,11 +204,24 @@ if (isset($_GET['FilterApply'])) {
 
 
 
-
-
-
+  $stmt = $pdo->prepare(" SELECT save.ID_Offer AS OFFRELIKE
+  FROM users inner join save ON users.ID_User = save.ID_User
+  WHERE users.USERNAME = ?;");
+  $stmt->bindParam(1, $_SESSION["newsession"]);
+  $stmt->execute();
+  $res2 = $stmt->fetchAll();
+  $stmt->closeCursor();
 
   foreach ($res as $row) {
+
+  foreach($res2 as $row2){
+    $bufferliked = '';
+      if($row['IDOFFER'] == $row2['OFFRELIKE']){
+       $bufferliked = 'liked fas';
+       break;
+      }
+    }
+    
     $buffer .= '
         <div class="container announceBackground lamarge">
         <div class="row">
