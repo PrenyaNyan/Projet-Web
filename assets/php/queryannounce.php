@@ -32,24 +32,65 @@ if (isset($_GET['FilterApply'])) {
   $FILTER_VERIFBTP = "$BTP";
   $FILTER_VERIFIND = "$Industrie";
 
-  $FILTER_SECTEUR = ($FILTER_VERIFINF == '') ? '' : " sector.NAME = '$Informatique' ";
-  $FILTER_SECTEUR1 = ($FILTER_VERIFBTP == '') ? '' : " AND sector.NAME = '$BTP' ";
-  $FILTER_SECTEUR2 = ($FILTER_VERIFIND == '') ? '' : " AND sector.NAME = '$Industrie' ";
-  //echo $FILTER_VERIF, $FILTER_SECTEUR, $FILTER_SECTEUR1, $FILTER_SECTEUR2;
+  $ET1 = '';
+  $ET2 = '';
+  $ET3 = '';
+
+  $FILTER_SECTEUR = ($FILTER_VERIFINF == '') ? '' : " $ET1 sector.NAME = '$Informatique' ";
+  $FILTER_SECTEUR1 = ($FILTER_VERIFBTP == '') ? '' : " $ET2 sector.NAME = '$BTP' ";
+  $FILTER_SECTEUR2 = ($FILTER_VERIFIND == '') ? '' : " $ET3 sector.NAME = '$Industrie' ";
 
 
-
-  
 
   try {
 
     if ($date != '' or $localisation != '' or $FILTER_VERIF != '') {
       $WHERE = "WHERE";
 
-      if (($date != '' and $localisation != '') or ($date != '' and $FILTER_VERIF != '') or ($localisation != '' and $FILTER_VERIF != '') or ($localisation != '' and $FILTER_VERIF != '' and $date != '')) {
+      if (($date != '' and $localisation != '')) {
         $et = "AND";
       } else {
         $et = '';
+      }
+      if (($date != '' and $FILTER_SECTEUR != '')) {
+        $ET1 = "AND";
+      } else {
+        $ET1 = '';
+      }
+      if (($localisation != '' and $FILTER_SECTEUR != '')) {
+        $ET1 = "AND";
+      } else {
+        $ET1 = '';
+      }
+      if (($date != '' and $FILTER_SECTEUR1 != '')) {
+        $ET2 = "AND";
+      } else {
+        if (($localisation != '' and $FILTER_SECTEUR1 != '')) {
+          $ET2 = "AND";
+        } else {
+          if (($FILTER_SECTEUR != '' and $FILTER_SECTEUR1 != '')) {
+            $ET2 = "AND";
+          } else {
+            $ET2 = '';
+          }
+        }
+      }
+      if (($date != '' and $FILTER_SECTEUR2 != '')) {
+        $ET3 = "AND";
+      } else {
+        if (($localisation != '' and $FILTER_SECTEUR2 != '')) {
+          $ET3 = "AND";
+        } else {
+          if (($FILTER_SECTEUR != '' and $FILTER_SECTEUR2 != '')) {
+            $ET3 = "AND";
+          } else {
+            if (($FILTER_SECTEUR1 != '' and $FILTER_SECTEUR2 != '')) {
+              $ET3 = "AND";
+            } else {
+              $ET3 = '';
+            }
+          }
+        }
       }
     } else {
       $WHERE = '';
@@ -58,16 +99,22 @@ if (isset($_GET['FilterApply'])) {
 
 
 
+    $FILTER_SECTEUR = ($FILTER_VERIFINF == '') ? '' : " $ET1 sector.NAME = '$Informatique' ";
+    $FILTER_SECTEUR1 = ($FILTER_VERIFBTP == '') ? '' : " $ET2 sector.NAME = '$BTP' ";
+    $FILTER_SECTEUR2 = ($FILTER_VERIFIND == '') ? '' : " $ET3 sector.NAME = '$Industrie' ";
+
+
     $FILTER_DATE = ($date == '') ? '' : " offer.STARTDATE >= '$date'";
     $FILTER_LOCATION = ($localisation == '') ? '' : " location.ID_Location = $localisation";
-    
+
+
 
     $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
                                 FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
                                 inner JOIN correspond ON company.ID_Company = correspond.ID_Company 
                                 INNER JOIN  sector ON correspond.ID_Sector = sector.ID_Sector
-                                ' . $WHERE . ' ' . $FILTER_DATE . ' ' . $et . ' ' . $FILTER_LOCATION . ' ' . $et . ' ' . $FILTER_SECTEUR . ';');
+                                ' . $WHERE . ' ' . $FILTER_DATE . ' ' . $et . ' ' . $FILTER_LOCATION . ' ' . $FILTER_SECTEUR . ' ' . $FILTER_SECTEUR1 . ' ' . $FILTER_SECTEUR2 . ';');
 
 
 
@@ -130,7 +177,7 @@ if (isset($_GET['FilterApply'])) {
     echo '<option value="erreur">Erreur de connexion a la base de données</option>';
     echo $th;
   }
-}else {
+} else {
 
   $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
                                 FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
@@ -191,4 +238,3 @@ if (isset($_GET['FilterApply'])) {
   }
   echo $buffer;
 }
-
