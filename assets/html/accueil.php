@@ -28,7 +28,7 @@ require('../php/isnotconnected.php');
   require('../php/CreateHeader.php');
   ?>
 
-  
+
 
 
   <form action="../html/accueil.php" method="get">
@@ -56,16 +56,17 @@ require('../php/isnotconnected.php');
         <div class="container containerFiltre">
           <div class="row">
             <div class="col-sm-3">
-              <h6>Choix de votre année d'étude :</h6>
-              <select class="form-select LastInput" name="Annee" id="years-select">
-                <option value="">Années d'études</option>
-                <option value="BAC +1">BAC +1</option>
-                <option value="BAC +2">BAC +2</option>
-                <option value="BAC +3">BAC +3</option>
-                <option value="BAC +4">BAC +4</option>
-                <option value="BAC +5">BAC +5</option>
+              <h6>Secteur d'activité :</h6>
+              <div>
+                <input type="checkbox" id="Informatique" name="Informatique">
+                <label for="Informatique">Informatique</label><br>
 
-              </select>
+                <input type="checkbox" id="BTP" name="BTP">
+                <label for="BTP">BTP</label><br>
+
+                <input type="checkbox" id="Industrie" name="Industrie">
+                <label for="Industrie">Industrie</label>
+              </div>
 
             </div>
 
@@ -84,12 +85,10 @@ require('../php/isnotconnected.php');
               <h6>Localisation du stage :</h6>
               <select class="form-select LastInput" id="inputlocalisation" name="localisation">
                 <option selected id="inputlocalisation" value="">Lieux</option>
-
                 <?php
                 require('../php/querylocalisation.php');
                 ?>
               </select>
-
             </div>
 
 
@@ -135,11 +134,11 @@ require('../php/isnotconnected.php');
 
 
 
-<div id="entredeux">
-  <?php
-  require('../php/queryannounce.php');
-  ?>
-</div>
+  <div id="entredeux">
+    <?php
+    require('../php/queryannounce.php');
+    ?>
+  </div>
 
 
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -172,7 +171,7 @@ require('../php/isnotconnected.php');
 
 
 
- 
+
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="../vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
