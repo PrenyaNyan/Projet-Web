@@ -105,11 +105,11 @@ if (isset($_GET['FilterApply'])) {
     $FILTER_DATE = ($date == '') ? '' : " offer.STARTDATE >= '$date'";
     $FILTER_LOCATION = ($localisation == '') ? '' : " location.ID_Location = $localisation";
 
-    $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
+    $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION, sector.NAME AS SECTEUR 
                                 FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
                                 inner JOIN correspond ON company.ID_Company = correspond.ID_Company 
-                                INNER JOIN  sector ON correspond.ID_Sector = sector.ID_Sector
+                                INNER JOIN  sector ON correspond.ID_Sector = sector.ID_Sector 
                                 ' . $WHERE . ' ' . $FILTER_DATE . ' ' . $et . ' ' . $FILTER_LOCATION . ' ' . $FILTER_SECTEUR . ' ' . $FILTER_SECTEUR1 . ' ' . $FILTER_SECTEUR2 . ';');
 
 
@@ -158,11 +158,14 @@ if (isset($_GET['FilterApply'])) {
               <font style="vertical-align: inherit;">' . $row['STARTDATE'] . '/' . $row['ENDDATE'] . '</font>
             </div>
             <p class="card-text mb-auto">
+            <font style="vertical-align: inherit;">Secteur d\'activité : ' . $row['SECTEUR'] . '</font>
+            </p><br>
+            <p class="card-text mb-auto">
               <font style="vertical-align: inherit;">' . $row['THEDESCRIPTION'] . '</font>
             </p>
             <form action="../html/postuler.php" method="post" class="buttonPosition">
               <input type="hidden" name="id" value="' . $row['IDOFFER'] . '">
-              <button type="submit" class="btn btn-primary btn-lg buttonAnnounce">
+              <button type="submit" class="btn btn-primary btn-lg buttonAnnounce1">
                 <font style="vertical-align: inherit;">voir plus</font>
               </button>
             </form>
@@ -189,8 +192,8 @@ if (isset($_GET['FilterApply'])) {
   }
 } else {
 
-  $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION 
-                                FROM `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
+  $stmt = $pdo->prepare('SELECT company.Name AS NAMECOMPANY, offer.NAME AS NAMEOFFER, offer.STARTDATE AS STARTDATE, offer.ENDDATE AS ENDDATE, offer.DESCRIPTION AS THEDESCRIPTION, offer.ID_Offer AS IDOFFER, location.City AS LOCALISATION, sector.NAME AS SECTEUR
+                                FROM sector, `offer` inner JOIN company ON offer.ID_Company = company.ID_Company 
                                 inner JOIN location ON offer.ID_Location = location.ID_Location 
                                 ;');
 
@@ -224,26 +227,29 @@ if (isset($_GET['FilterApply'])) {
         <div class="container announceBackground lamarge">
         <div class="row">
     
-          <div class="col-sm-8">
-            <strong class="d-inline-block mb-2 text-primary">
-              <font style="vertical-align: inherit;">' . $row['NAMECOMPANY'] . '</font>
-            </strong>
-            <h3 class="mb-0">
-              <font style="vertical-align: inherit;">' . $row['NAMEOFFER'] . '</font>
-            </h3>
-            <div class="mb-1 text-muted">
-              <font style="vertical-align: inherit;">' . $row['STARTDATE'] . '/' . $row['ENDDATE'] . '</font>
-            </div>
-            <p class="card-text mb-auto">
-              <font style="vertical-align: inherit;">' . $row['THEDESCRIPTION'] . '</font>
-            </p>
-            <form action="../html/postuler.php" method="post" class="buttonPosition">
-              <input type="hidden" name="id" value="' . $row['IDOFFER'] . '">
-              <button type="submit" class="btn btn-primary btn-lg buttonAnnounce">
-                <font style="vertical-align: inherit;">voir plus</font>
-              </button>
-            </form>
-          </div>
+        <div class="col-sm-8">
+        <strong class="d-inline-block mb-2 text-primary">
+          <font style="vertical-align: inherit;">' . $row['NAMECOMPANY'] . '</font>
+        </strong>
+        <h3 class="mb-0">
+          <font style="vertical-align: inherit;">' . $row['NAMEOFFER'] . '</font>
+        </h3>
+        <div class="mb-1 text-muted">
+          <font style="vertical-align: inherit;">' . $row['STARTDATE'] . '/' . $row['ENDDATE'] . '</font>
+        </div>
+        <p class="card-text mb-auto">
+        <font style="vertical-align: inherit;">Secteur d\'activité : ' . $row['SECTEUR'] . '</font>
+        </p><br>
+        <p class="card-text mb-auto">
+          <font style="vertical-align: inherit;">' . $row['THEDESCRIPTION'] . '</font>
+        </p>
+        <form action="../html/postuler.php" method="post" class="buttonPosition">
+          <input type="hidden" name="id" value="' . $row['IDOFFER'] . '">
+          <button type="submit" class="btn btn-primary btn-lg buttonAnnounce1">
+            <font style="vertical-align: inherit;">voir plus</font>
+          </button>
+        </form>
+      </div>
     
           <div class="col-sm-3">
             <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" alt="" width="100%" style="border-radius: 8px;" />
