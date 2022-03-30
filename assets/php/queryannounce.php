@@ -24,7 +24,7 @@ if (isset($_GET['FilterApply'])) {
 
   $date = $_GET['date'];
   $localisation = $_GET['localisation'];
-  // $rate = $_GET['rate']; 
+
 
 
   $FILTER_VERIF = "$Informatique$BTP$Industrie";
@@ -97,7 +97,7 @@ if (isset($_GET['FilterApply'])) {
       $et = '';
     }
 
-
+    echo $WHERE;
 
     $FILTER_SECTEUR = ($FILTER_VERIFINF == '') ? '' : " $ET1 sector.NAME = '$Informatique' ";
     $FILTER_SECTEUR1 = ($FILTER_VERIFBTP == '') ? '' : " $ET2 sector.NAME = '$BTP' ";
