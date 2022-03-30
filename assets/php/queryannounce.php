@@ -101,14 +101,11 @@ if (isset($_GET['FilterApply'])) {
       $et = '';
     }
 
-    echo " ET1 =", $ET1, " ET2 =", $ET2, " ET3 =", $ET3;
+
 
     $FILTER_SECTEUR = ($FILTER_VERIFINF == '') ? '' : " $ET1 sector.NAME = '$Informatique' ";
     $FILTER_SECTEUR1 = ($FILTER_VERIFBTP == '') ? '' : " $ET2 sector.NAME = '$BTP' ";
     $FILTER_SECTEUR2 = ($FILTER_VERIFIND == '') ? '' : " $ET3 sector.NAME = '$Industrie' ";
-
-
-    echo $FILTER_SECTEUR, $FILTER_SECTEUR1, $FILTER_SECTEUR2;
 
 
     $FILTER_DATE = ($date == '') ? '' : " offer.STARTDATE >= '$date'";
