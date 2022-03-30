@@ -78,7 +78,7 @@ require('../php/isnotconnected.php');
                     <textarea name="textareaA" placeholder="Texte de motivation (5000 caractères MAX)" id="" maxlength="5000" cols="80" rows="15" class="form-control"></textarea>
                     <div id="textareaAError" class="counter"><span>0</span> caractères (5000 max)</div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit">Postuler</button>
+                        <button type="submit" class = "btn btn-primary btn-lg me-2 m-2">Postuler</button>
                     </div>
                 </div>
             </div>
