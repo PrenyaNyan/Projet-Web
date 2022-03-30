@@ -4,7 +4,7 @@ if (empty($_POST["id"])) {
     exit();
 }
 try {
-    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.ID_offer,offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC 
+    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.ID_offer,offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC, location.City
                             FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location 
                             inner JOIN company on offer.ID_Company = company.ID_Company 
                             WHERE offer.ID_Offer = ?;");
@@ -39,7 +39,8 @@ try {
             <span>' . $res['OFFERNAME'] . '</span> /
             <span>' . $res['EMAIL'] . '</span> / Place disponible : 
             <span>' . $res['NBPLACE'] . '</span> / Date :
-            <span>' . $res['STARTDATE'] . ' | ' . $res['ENDDATE'] . '</span>
+            <span>' . $res['STARTDATE'] . ' | ' . $res['ENDDATE'] . '</span> / Localisation : 
+            <span>' . $res['City'] . '</span>
         </div>
         <div>
             <p class="text-center">' . $res['OFFERDESC'] . '</p>
