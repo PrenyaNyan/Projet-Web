@@ -19,7 +19,7 @@ require('../php/isnotconnected.php');
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Hello World">
     <meta name="msapplication-TileImage" content="/assets/images/hello-icon-144.png">
-    <meta name="msapplication-TileColor" content="#FFFFFF"> 
+    <meta name="msapplication-TileColor" content="#FFFFFF">
 
     <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
@@ -287,22 +287,6 @@ require('../php/isnotconnected.php');
                 ?>
             </div>
         </div>
-        <form  id="moderationpageuserform" action="../html/moderation.php" method="get">
-            <nav aria-label="paginationuser" style="margin-top: 20px;">
-                <ul class="pagination justify-content-center">
-
-                    <li class="page-item"><a class="page-link" id="previoususerpage2"  href="#">0</a></li>
-                    <li class="page-item"><a class="page-link" id="previoususerpage"  href="#">0</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <span id="currentuserpage" class="page-link">1</span>
-                        <input type="hidden" id="inputpageuser" name="pageuser" value="1">
-                    </li>
-                    <li class="page-item"><a class="page-link" id="nextuserpage"  href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" id="nextuserpage2"  href="#">3</a></li>
-
-                </ul>
-            </nav>
-        </form>
     </div>
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

@@ -16,32 +16,32 @@ try {
         switch ($row['Step']) {
             case 1:
                 $Stepbuffer = ' <div class="alert alert-primary" role="alert">
-                                    Votre postulation a bien été transmise à la société ' . $row['COMPANYNAME'] . ', une réponse vous sera renvoyée dans les plus brefs délais !
+                                    1 : Votre postulation a bien été transmise à la société ' . $row['COMPANYNAME'] . ', une réponse vous sera renvoyée dans les plus brefs délais !
                                 </div>';
                 break;
             case 2:
                 $Stepbuffer = ' <div class="alert alert-primary" role="alert">
-                                    La société  ' . $row['COMPANYNAME'] . ' vous a répondu par mail !
+                                    2 : La société  ' . $row['COMPANYNAME'] . ' vous a répondu par mail !
                                 </div>';
                 break;
             case 3:
                 $Stepbuffer = ' <div class="alert alert-primary" role="alert">
-                                    Votre fiche de validation de stage a été remplie par la société ' . $row['COMPANYNAME'] . ' !
+                                    3 : Votre fiche de validation de stage a été remplie par la société ' . $row['COMPANYNAME'] . ' !
                                 </div>';
                 break;
             case 4:
                 $Stepbuffer = ' <div class="alert alert-primary" role="alert">
-                                    Votre fiche de validation a été signée par le pilote !
+                                    4 : Votre fiche de validation a été signée par le pilote !
                                 </div>';
                 break;
             case 5:
                 $Stepbuffer = ' <div class="alert alert-primary" role="alert">
-                                    Vos conventions de stage ont été transmises à l\'entreprise ' . $row['COMPANYNAME'] . ' !
+                                    5 : Vos conventions de stage ont été transmises à l\'entreprise ' . $row['COMPANYNAME'] . ' !
                                 </div>';
                 break;
             case 6:
                 $Stepbuffer = ' <div class="alert alert-success" role="alert">
-                                    Vos conventions de stage ont été retournées signées par l\'entreprise ' . $row['COMPANYNAME'] . ' !
+                                    6 : Vos conventions de stage ont été retournées signées par l\'entreprise ' . $row['COMPANYNAME'] . ' !
                                 </div>';
                 break;
 
