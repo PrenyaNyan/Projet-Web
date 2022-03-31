@@ -49,8 +49,9 @@ require('../php/isnotconnected.php');
             <div class="col-md-6">
                 <?php
                 require('../php/applycreate.php');
-                require('../php/queryinfocompany.php');
                 require('../php/evaluate.php');
+                require('../php/queryinfocompany.php');
+                
                 ?>
             </div>
 

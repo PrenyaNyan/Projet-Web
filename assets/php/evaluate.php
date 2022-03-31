@@ -10,8 +10,6 @@ try {
         $res = $stmt->fetch();
         $stmt->closeCursor();
         $idduuser = $res['ID_User'];
-        echo $idduuser . "    ";
-
     
         $stmt = $pdo->prepare(" INSERT INTO evaluate (ID_Company, ID_User, GRADE)
                                 VALUES (?,?,?);");
