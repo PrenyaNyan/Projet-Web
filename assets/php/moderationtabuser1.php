@@ -14,6 +14,7 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["use
         $stmt->closeCursor();
     } catch (\Throwable $th) {
         echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Erreur de connexion a la base de données</div>';
+        echo $th;
     }
 }
 
@@ -143,4 +144,5 @@ try {
     echo $buffer;
 } catch (\Throwable $th) {
     echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Vous n\'avez pas l\'autorisation suffisante pour cette action !</div>';
+    echo $th;
 }

@@ -12,8 +12,11 @@ try {
     if (isset($_POST['updateoffername']) && isset($_POST['updateplaceavailable']) && isset($_POST['updatestartdate']) && isset($_POST['updateenddate']) && isset($_POST['updateofferdescription']) && isset($_POST['updatecreatecompanyoffer']) && isset($_POST['updatesalary']) && isset($_POST['updatelocalisation']) && isset($_POST["send"]) && isset($_POST["idoffer"])) {
         try {
             if ($_POST['send'] == 'delete') {
-                $stmt = $pdo->prepare("DELETE FROM `offer` WHERE `offer`.`ID_Offer` = ?;");
+                $stmt = $pdo->prepare(" DELETE FROM `offer` WHERE `offer`.`ID_Offer` = ?;
+                                        DELETE FROM `applyfor` WHERE applyfor.ID_Offer = ?;
+                                        DELETE FROM `save` WHERE save.ID_Offer = ?;");
                 $stmt->bindParam(1, $_POST["idoffer"]);
+                $stmt->bindParam(2, $_POST["idoffer"]);
             } else {
                 $stmt = $pdo->prepare(" UPDATE `offer` SET `NAME`=?,`STARTDATE`=?,`ENDDATE`=?,`SALARY`=?,`NBPLACE`=?,`DESCRIPTION`=?,`ID_Company`=?,`ID_Location`=?
                                         WHERE ID_Offer = ?");
