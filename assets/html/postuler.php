@@ -43,7 +43,7 @@ require('../php/isnotconnected.php');
     </div>
 
 
-
+<input type="number" id="rate" name="rate" min="1" max="5">
 
 
     <form method="post" action="..\html\postuler.php">
@@ -52,6 +52,7 @@ require('../php/isnotconnected.php');
                 <?php
                 require('../php/applycreate.php');
                 require('../php/queryinfocompany.php');
+                require('../php/evaluate.php')
                 ?>
             </div>
 
