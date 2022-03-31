@@ -12,8 +12,17 @@ try {
     if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["iduser"]) && isset($_POST["sessionuser"]) && isset($_POST["send"])) {
         try {
             if ($_POST['send'] == 'delete') {
-                $stmt = $pdo->prepare(" DELETE FROM `users` WHERE ID_User = ?;");
+
+                $stmt = $pdo->prepare(" DELETE FROM `belong` WHERE belong.ID_User = ?; 
+                                        DELETE FROM `users` WHERE ID_User = ?;
+                                        DELETE FROM `evaluate` WHERE evaluate.ID_User = ?;
+                                        DELETE FROM `applyfor` WHERE applyfor.ID_User = ?;
+                                        DELETE FROM `save` WHERE save.ID_User = ?;");
                 $stmt->bindParam(1, $_POST["iduser"]);
+                $stmt->bindParam(2, $_POST["iduser"]);
+                $stmt->bindParam(3, $_POST["iduser"]);
+                $stmt->bindParam(4, $_POST["iduser"]);
+                $stmt->bindParam(5, $_POST["iduser"]);
             } else {
                 $stmt = $pdo->prepare(" UPDATE `users` SET `FIRSTNAME`=?, `LASTNAME`=?, `USERNAME`=?, `PASSWORD`=?, `ID_Session`=? WHERE users.ID_User = ?;");
 
@@ -31,6 +40,7 @@ try {
             $stmt->closeCursor();
         } catch (\Throwable $th) {
             echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Erreur de connexion a la base de données</div>';
+            echo $th;
         }
     }
 

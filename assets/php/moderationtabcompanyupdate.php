@@ -2,8 +2,22 @@
 if (isset($_POST["updatecompanyname"]) && isset($_POST["updateemail"]) && isset($_POST["updatedescription"]) && isset($_POST["companyusername"]) && isset($_POST["send"]) && isset($_POST["idcompany"])) {
     try {
         if ($_POST['send'] == 'delete') {
-            $stmt = $pdo->prepare("DELETE FROM `company` WHERE ID_Company = ?;");
+            $stmt = $pdo->prepare(" DELETE applyfor from applyfor
+                                    INNER join offer on applyfor.ID_Offer = offer.ID_Offer
+                                    INNER JOIN company on offer.ID_Company = company.ID_Company
+                                    WHERE company.ID_Company = ?;
+                                    DELETE save from save
+                                    INNER join offer on save.ID_Offer = offer.ID_Offer
+                                    INNER JOIN company on offer.ID_Company = company.ID_Company
+                                    WHERE company.ID_Company = ?;
+                                    DELETE FROM `offer` WHERE offer.ID_Company = ? ;
+                                    DELETE FROM `correspond` WHERE correspond.ID_Company = ? ; 
+                                    DELETE FROM `company` WHERE ID_Company = ?;");
             $stmt->bindParam(1, $_POST["idcompany"]);
+            $stmt->bindParam(2, $_POST["idcompany"]);
+            $stmt->bindParam(3, $_POST["idcompany"]);
+            $stmt->bindParam(4, $_POST["idcompany"]);
+            $stmt->bindParam(5, $_POST["idcompany"]);
         } else {
             $stmt = $pdo->prepare("UPDATE `company` SET `NAME`=?,`EMAIL`=?,`DESCRIPTION`=?,`ID_User`=? 
                                     WHERE company.ID_Company = ?;");
@@ -21,6 +35,7 @@ if (isset($_POST["updatecompanyname"]) && isset($_POST["updateemail"]) && isset(
         $stmt->closeCursor();
     } catch (\Throwable $th) {
         echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Erreur de connexion a la base de données</div>';
+        echo $th;
     }
 }
 
