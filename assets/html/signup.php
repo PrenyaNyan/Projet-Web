@@ -11,13 +11,13 @@ require('../php/isconnected.php');
 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/assets/images/hello-icon-152.png">
+    <link rel="apple-touch-icon" href="/assets/images/Dep-152.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="white" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Hello World">
-    <meta name="msapplication-TileImage" content="/assets/images/hello-icon-144.png">
+    <meta name="msapplication-TileImage" content="/assets/images/Dep-144.png">
     <meta name="msapplication-TileColor" content="#FFFFFF">
 
     <link rel="stylesheet" href="../vendors/bootstrap/css/bootstrap.min.css">
