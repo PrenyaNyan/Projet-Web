@@ -4,7 +4,7 @@ if (empty($_POST["id"])) {
     exit();
 }
 try {
-    $stmt = $pdo->prepare(" SELECT company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.ID_offer,offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC, location.City
+    $stmt = $pdo->prepare(" SELECT company.ID_Company ,company.NAME AS COMPANYNAME, company.EMAIL, company.DESCRIPTION AS COMPANYDESC, offer.ID_offer,offer.NAME AS OFFERNAME, offer.STARTDATE, offer.ENDDATE, offer.REALEASEDATE, offer.SALARY, offer.NBPLACE, offer.DESCRIPTION AS OFFERDESC, location.City
                             FROM `offer` inner JOIN location ON offer.ID_Location = location.ID_Location 
                             inner JOIN company on offer.ID_Company = company.ID_Company 
                             WHERE offer.ID_Offer = ?;");
@@ -20,9 +20,8 @@ try {
         <h2 class="text-center p-1">' . $res['COMPANYNAME'] . '</h2>
         <h6 class="text-center p-1">' . $res['COMPANYDESC'] . '</h6>
         <img src="https://img-0.journaldunet.com/la7i_1Y8UNwnsDRdLYjaR2CHPKA=/1500x/smart/da9bdec385c74c66b032708cfe1453a6/ccmcms-jdn/28990032.jpg" class="mx-auto" style="width: 500px" ;>
-        <div class="d-flex justify-content-center rating rating2 m-2">
-        <input type="number" id="rate" name="rate" min="1" max="5">
-
+        <input type="number" name="rating" min="1" max="5" value="1">
+        <!--<div class="d-flex justify-content-center rating rating2 m-2">
             <div class="rate">
                 <input type="number" id="rate" name="rate" min="1" max="5"
                 <input type="radio" id="star5" name="rate" value="5" />
@@ -36,8 +35,9 @@ try {
                 <input type="radio" id="star1" name="rate" value="1" />
                 <label for="star1" title="text">1 star</label>
             </div>
-            <input type="hidden" name="ID_OffrePostuler" value="' . $res['ID_offer'] . '">
-        </div>
+            </div> -->
+        <input type="hidden" name="ID_OffrePostuler" value="' . $res['ID_offer'] . '">
+        <input type="hidden" name="idducompany" value="' . $res['ID_Company'] . '">
         <div class="card-text mb-auto text-center p-2">
             <span>' . $res['OFFERNAME'] . '</span> /
             <span>' . $res['EMAIL'] . '</span> / Place disponible : 

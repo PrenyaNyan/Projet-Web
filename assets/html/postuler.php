@@ -43,8 +43,6 @@ require('../php/isnotconnected.php');
     </div>
 
 
-<input type="number" id="rate" name="rate" min="1" max="5">
-
 
     <form method="post" action="..\html\postuler.php">
         <div class="row align-items-md-stretch m-3">
@@ -52,7 +50,7 @@ require('../php/isnotconnected.php');
                 <?php
                 require('../php/applycreate.php');
                 require('../php/queryinfocompany.php');
-                require('../php/evaluate.php')
+                require('../php/evaluate.php');
                 ?>
             </div>
 
@@ -60,12 +58,6 @@ require('../php/isnotconnected.php');
 
 
             <div class="col-md-6">
-
-
-
-
-
-
                 <div class="h-100 p-5 formePost">
                     <h2 class="d-inline-block mb-2">CV</h2>
                     <div class="row align-items-md-stretch">
@@ -93,7 +85,7 @@ require('../php/isnotconnected.php');
 
 
 
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <!--<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24">
@@ -119,7 +111,7 @@ require('../php/isnotconnected.php');
                     </svg></a></li>
         </ul>
 
-    </footer>
+    </footer>-->
 
 
 
