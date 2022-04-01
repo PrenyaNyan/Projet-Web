@@ -49,9 +49,6 @@ try {
     if ($currentsession == 1 || $currentsession == 2 || $currentsession == 4) {
         $querybuffer = '    SELECT * FROM `users` WHERE users.ID_Session = 3 OR users.ID_Session = 4 ';
 
-        if ($currentsession == 1 || $currentsession == 2) {
-            $querybuffer .= 'OR users.ID_Session = 2 ';
-        }
         if ($currentsession == 1) {
             $querybuffer .= 'OR users.ID_Session = 1 ';
         }
