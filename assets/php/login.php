@@ -1,14 +1,14 @@
 <?php
-if (isset($_GET["username"])) {
-    if ($_GET["username"] == "" || $_GET["password"] == "") {
+if (isset($_POST["username"])) {
+    if ($_POST["username"] == "" || $_POST["password"] == "") {
         echo '<div class="alert alert-danger" role="alert">Champs non remplis</div>';
     } else {
         try {
             require('../php/createPDO.php');
 
             $stmt = $pdo->prepare("SELECT * FROM `users` where USERNAME=? and PASSWORD=?");
-            $stmt->bindParam(1, $_GET["username"]);
-            $stmt->bindParam(2, $_GET["password"]);
+            $stmt->bindParam(1, $_POST["username"]);
+            $stmt->bindParam(2, $_POST["password"]);
             $stmt->execute();
             $res = $stmt->fetch();
 

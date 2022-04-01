@@ -28,7 +28,7 @@ require('../php/isconnected.php');
 
 <body class="text-center">
     <main class="form-signin">
-        <form action="login.php" method="get">
+        <form action="login.php" method="post">
 
             <img src="https://cdn.discordapp.com/attachments/950033739604434965/950403057567551528/logo.png" width="120">
             <h1 class="h3 mb-3 fw-normal">Login DepiStage</h1>

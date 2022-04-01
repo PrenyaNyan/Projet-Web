@@ -17,6 +17,7 @@ try {
                                         DELETE FROM `save` WHERE save.ID_Offer = ?;");
                 $stmt->bindParam(1, $_POST["idoffer"]);
                 $stmt->bindParam(2, $_POST["idoffer"]);
+                $stmt->bindParam(3, $_POST["idoffer"]);
             } else {
                 $stmt = $pdo->prepare(" UPDATE `offer` SET `NAME`=?,`STARTDATE`=?,`ENDDATE`=?,`SALARY`=?,`NBPLACE`=?,`DESCRIPTION`=?,`ID_Company`=?,`ID_Location`=?
                                         WHERE ID_Offer = ?");
@@ -38,6 +39,7 @@ try {
             $stmt->closeCursor();
         } catch (\Throwable $th) {
             echo '<div class="alert alert-danger" style="margin-left: auto;margin-right: auto;" role="alert">Erreur de connexion a la base de données</div>';
+            echo $th;
         }
     }
 
